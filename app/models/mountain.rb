@@ -1,3 +1,3 @@
 class Mountain < ApplicationRecord
-  has_many :trails
+  has_many :trails, dependent: :destroy
 end
