@@ -21,13 +21,16 @@ end
 
 trails.each do |trail|
   props = trail['properties']
+  coords = trail['geometry']['coordinates']
 
-  unless props['type'] == 'chairlift'
+  unless props['type'] == 'chairlift' || trail['geometry']['type'] == 'Point'
     record = Trail.new(
+      mountain: whistler,
       name: props['name'],
       difficulty: difficulty(props['difficulty']) || 'beginner',
       category: props['type'] ? 'freeride' : 'technical',
-      mountain: whistler
+      latitude: coords[0][1],
+      longitude: coords[0][0]
     )
 
     if record.valid?
