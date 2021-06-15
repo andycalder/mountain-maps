@@ -8,6 +8,7 @@ dataset = URI.open(dataset_url).read
 trails = JSON.parse(dataset)['features']
 
 whistler = Mountain.create!(name: 'Whistler')
+admin_user = User.create!(email: 'admin@gmail.com', password: 'secret', nickname: 'admin')
 
 def difficulty(color)
   case color
