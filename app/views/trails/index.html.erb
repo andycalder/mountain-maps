@@ -1,9 +1,9 @@
-<h1>Trails#index</h1>
-
-<ul>
-  <% @trails.each do |trail| %>
-    <li>
-      <%= trail.name %>
-    </li>
-  <% end %>
-</ul>
+<%= turbo_frame_tag('sidebar') do %>
+  <ul>
+    <% @trails.each do |trail| %>
+      <li>
+        <%= link_to trail.name, trail_path(trail) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
