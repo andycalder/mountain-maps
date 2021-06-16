@@ -13,6 +13,14 @@ const initMapbox = () => {
       center: [-74.5, 40],
       zoom: 9
     });
+
+    map.on('click', (e) => {
+      const popup = new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML("<h2>Upload photo</h2>")
+        .setMaxWidth("300px")
+        .addTo(map);
+    });
   }
 };
 
