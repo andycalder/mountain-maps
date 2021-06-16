@@ -1,0 +1,6 @@
+<%= turbo_frame_tag("sidebar") do %>
+  <%= link_to 'Back', mountain_trails_path(@trail.mountain) %>
+  <h1><%= @trail.name %></h1>
+  <p><%= @trail.difficulty %></p>
+  <p><%= @trail.category %></p>
+<% end %>
