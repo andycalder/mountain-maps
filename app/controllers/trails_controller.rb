@@ -5,5 +5,7 @@ class TrailsController < ApplicationController
 
   def show
     @trail = Trail.find(params[:id])
+    @review = Review.new
+    @reviews = Review.where(trail: @trail)
   end
 end
