@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     @review.trail = @trail
     @review.user = current_user
     if @review.save
-      redirect_to trail_path, notice: 'Your review has been added'
+      redirect_to trail_path(@trail), notice: 'Your review has been added'
     else
       render 'trails/show'
     end

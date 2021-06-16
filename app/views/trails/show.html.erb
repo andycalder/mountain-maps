@@ -3,4 +3,20 @@
   <h1><%= @trail.name %></h1>
   <p><%= @trail.difficulty %></p>
   <p><%= @trail.category %></p>
+
+  <!-- Start reviews list -->
+  <ul>
+    <% @reviews. each do |review| %>
+      <li><%= review['comment'] %></li>
+    <% end %>
+  </ul>
+  <!-- End reviews list -->
+
+  <p>Add a review</p>
+  <!-- Start Review form -->
+  <%= simple_form_for [@trail, @review] do |f| %>
+    <%= f.input :comment %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+  <!-- End Review form -->
 <% end %>
