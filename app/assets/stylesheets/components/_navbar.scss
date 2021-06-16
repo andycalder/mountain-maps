@@ -27,12 +27,12 @@
   width: 225px;
 }
 
-.right-navbar .btn-sign-up, .right-navbar .btn-sign-in {
-  margin-left: 70px;
+.right-navbar .btn-sign-up, .right-navbar .btn-sign-in, .right-navbar .btn-sign-out {
+  margin-left: 20px;
 }
 
 .avatar-large {
-  border: 2px solid #ffffff;
+  border: 1px solid #ffffff;
 }
 
 .btn-sign-up {
@@ -40,17 +40,17 @@
   border-radius: 5px;
   color: #ffffff;
   background-color: #000000;
-  padding: 6px 15px 6px 15px;
+  padding: 10px 20px 10px 20px;
 }
 
-.btn-sign-in {
+.btn-sign-in, .btn-sign-out {
   color: #ffffff;
   border-radius: 5px;
   background-color: #C55929;
-  padding: 6px 17px 6px 17px;
+  padding: 10px 25px 10px 25px;
 }
 
-.btn-sign-up:hover, .btn-sign-in:hover {
+.btn-sign-up:hover, .btn-sign-in:hover, .btn-sign-out:hover {
   font-weight: bold;
   color: #ffffff;
 }
