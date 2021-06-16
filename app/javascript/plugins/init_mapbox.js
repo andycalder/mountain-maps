@@ -15,9 +15,11 @@ const initMapbox = () => {
     });
 
     map.on('click', (e) => {
+      const frame = '<turbo-frame id="photo-upload" src="/photos/new"><p>Upload button</p></turbo-frame>';
+
       const popup = new mapboxgl.Popup()
         .setLngLat(e.lngLat)
-        .setHTML("<h2>Upload photo</h2>")
+        .setHTML(frame)
         .setMaxWidth("300px")
         .addTo(map);
     });

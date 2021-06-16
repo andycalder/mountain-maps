@@ -1,0 +1,3 @@
+<%= turbo_frame_tag("photo-upload") do %>
+  <%= cl_image_tag(@photo.image.key, width: 300, height: 200, crop: :fill) %>
+<% end %>

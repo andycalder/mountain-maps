@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :trails, only: [:show] do
     resources :reviews, only: [:create]
   end
+
+  resources :photos, only: [:show, :new, :create]
 end
