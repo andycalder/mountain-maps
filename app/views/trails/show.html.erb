@@ -6,7 +6,7 @@
       <i class="fas fa-arrow-left"></i>
       Back
     </a>
-    <h1><span class="highlighted">Mountain</span> title</h1>
+    <h1><%= @trail.name %></h1>
   </div>
 
   <div class="show-description">
@@ -23,30 +23,32 @@
   <div class="reviews-section">
     <h1>Comments</h1>
     <%# Reviews card %>
-    <div class="reviews-card">
-      <img src="https://source.unsplash.com/200x200" alt="" class="avatar">
-      <div class="card-contents">
-        <h2>Username</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, ipsam.</p>
+    <% @reviews.each do |review| %>
+      <div class="reviews-card">
+        <img src="https://source.unsplash.com/200x200" alt="" class="avatar">
+        <div class="card-contents">
+          <h2><%= current_user.nickname %></h2>
+          <p><%= review['comment'] %></p>
+        </div>
       </div>
-    </div>   
+    <% end %>    
     <%#---end--- %>
 
     <%#Add Review %>
     <div class="add-review">
       <% if user_signed_in? %>
       <!-- Start if user is signed up -->
-      <%= simple_form_for [@trail, @review] do |f| %>
-      <%= f.input :comment %>
-      <%= f.submit "ADD", class: "btn btn-warning submit-button" %>
-      <% end %>
+        <%= simple_form_for [@trail, @review] do |f| %>
+          <%= f.input :comment %>
+          <%= f.submit "ADD", class: "btn btn-warning submit-button" %>
+        <% end %>
       <!-- End if user is signed up -->
       <% else %>
       <!-- Start if user is not signed up -->
-      <div>
-        <p>Sign up to leave a review</p>
-        <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-warning submit-button" %>
-      </div>
+        <div>
+          <p>Sign up to leave a review</p>
+          <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-warning submit-button" %>
+        </div>
       <!-- End if user is not signed up -->
       <% end %>
       <!-- End Review form -->
