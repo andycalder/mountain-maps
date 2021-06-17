@@ -1,9 +1,31 @@
+<%# Turbo Frame %>
 <%= turbo_frame_tag('sidebar') do %>
-  <ul>
+<%#---Side nav ---%>
+<div class="sidenav">
+  <%#---Searchbar---%>
+  <div class="search-bar">
+    <input type="text" class="search-box" placeholder="Search...">
+    <button class="btn btn-warning">Search</button>
+  </div>
+  <div id="filter-button" class="">
+    <a href="" class="">Beginner</a>
+    <a href="" class="">Intermediate</a>
+    <a href="" class="">Advanced</a>
+    <a href="" class="">Expert Only</a>
+    <a href="" class="">Proline</a>
+  </div>
+  <%#---end---%>
+
+  <%#---Show all trails---%>
+  <div class="trails">
     <% @trails.each do |trail| %>
-      <li>
-        <%= link_to trail.name, trail_path(trail) %>
-      </li>
+    <div class="trails-path">
+      <div class="overlay"></div>
+      <%= link_to trail.name, trail_path(trail), class: "trails-content"%>
+      <%= image_tag("svg-difficulty-icons/Ellipse 13.svg", height: 40, width: 40, class: "icon") %>
+    </div>
     <% end %>
-  </ul>
+  </div>
+  <%#---end---%>
+</div>
 <% end %>
