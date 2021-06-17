@@ -28,9 +28,12 @@ import "bootstrap";
 
 // Internal imports
 import { initMapbox } from '../plugins/init_mapbox';
+import { initSearch, initDifficultyFilter } from '../plugins/init_shuffle';
 
 //= require shuffle
 
 document.addEventListener('turbo:load', () => {
   initMapbox();
+  initSearch();
+  initDifficultyFilter();
 });
