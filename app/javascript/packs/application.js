@@ -6,9 +6,9 @@
 import "@hotwired/turbo-rails"
 require("@rails/activestorage").start()
 require("channels")
+import 'controllers'
 
 import { Turbo, cable } from '@hotwired/turbo-rails'
-
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -28,7 +28,12 @@ import "bootstrap";
 
 // Internal imports
 import { initMapbox } from '../plugins/init_mapbox';
+import { initSearch, initDifficultyFilter } from '../plugins/init_shuffle';
+
+//= require shuffle
 
 document.addEventListener('turbo:load', () => {
   initMapbox();
+  initSearch();
+  initDifficultyFilter();
 });
