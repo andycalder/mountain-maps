@@ -1,5 +1,8 @@
 <%= turbo_frame_tag("photo-upload") do %>
   <%= simple_form_for(@photo) do |f| %>
+    <%= f.hidden_field :latitude, required: true %>
+    <%= f.hidden_field :longitude, required: true %>
+    <%= f.hidden_field :trail_id, value: @trail_id, required: true %>
     <%= f.input :image, as: :file %>
     <%= f.button :submit, "Upload", class: "btn btn-primary"%>
   <% end %>

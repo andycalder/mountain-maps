@@ -5,14 +5,16 @@ class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new
+    @photo.latitude = params[:lat].to_f
+    @photo.longitude = params[:lng].to_f
+
+    @trail_id = Trail.find_by(name: params[:name]).id
   end
 
   def create
     @photo = Photo.new(photo_params)
-    @photo.trail = Trail.first
+    @photo.trail = Trail.find(photo_params[:trail_id])
     @photo.user = current_user
-    @photo.latitude = 50.0
-    @photo.longitude = 50.0
 
     if @photo.save
       redirect_to photo_path(@photo)
@@ -24,6 +26,6 @@ class PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:image)
+    params.require(:photo).permit(:trail_id, :latitude, :longitude, :image)
   end
 end
