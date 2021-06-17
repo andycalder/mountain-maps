@@ -1,5 +1,17 @@
-<h1>Mountains</h1>
+<div class="three-mountains">
+  <div class="mountain cardrona-photo">
+    <div class="darken"></div>
+  </div>
+  <div class="mountain whisler-photo">
+    <div class="darken"></div>
+  </div>
+  <div class="mountain chamonix-photo">
+    <div class="darken"></div>
+  </div>
+</div>
 
-<% @mountains.each do |mountain| %>
-  <%= mountain.name %>
-<% end %>
+<div>
+  <% @mountains.each do |mountain| %>
+    <p><%= mountain.name %></p>
+  <% end %>
+</div>

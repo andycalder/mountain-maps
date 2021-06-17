@@ -28,7 +28,9 @@ import "bootstrap";
 
 // Internal imports
 import { initMapbox } from '../plugins/init_mapbox';
+import { initMountainSlider } from '../components/init_mountain_slider';
 
 document.addEventListener('turbo:load', () => {
   initMapbox();
+  initMountainSlider();
 });
