@@ -19,11 +19,11 @@
   <%#---Show all trails---%>
   <div class="trails">
     <% @trails.each do |trail| %>
-    <div class="trails-path">
-      <div class="overlay"></div>
-      <%= link_to trail.name, trail_path(trail), class: "trails-content"%>
-      <%= image_tag("svg-difficulty-icons/Ellipse 13.svg", height: 40, width: 40, class: "icon") %>
-    </div>
+      <div class="trails-path">
+        <div class="overlay"></div>
+        <%= link_to trail.name, trail_path(trail), class: "trails-content"%>
+        <%= image_tag("svg-difficulty-icons/Ellipse 13.svg", height: 40, width: 40, class: "icon") %>
+      </div>
     <% end %>
   </div>
   <%#---end---%>
