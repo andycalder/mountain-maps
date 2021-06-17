@@ -1,0 +1,59 @@
+// Title section
+.show-title {
+  a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+}
+.difficulty {
+  display: flex;
+  justify-content: space-between;
+}
+
+.show-description {
+  img {
+    height: 220px;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+// Review Section
+.review-section {
+  margin-top: 30px;
+}
+
+.reviews-card {
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 20px;
+    width: 50px;
+    border: 1px solid #fff;
+  }
+}
+
+.card-contents{
+  h2 {
+    font-size: 16px;
+  }
+  p {
+    font-size: .75em;
+  }
+}
+
+// Add reviews
+.add-reviews {
+  #new_review {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  button {
+    color: #fff;
+  }
+}
+
