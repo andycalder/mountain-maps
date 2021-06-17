@@ -1,31 +1,32 @@
 <%# Turbo Frame %>
 <%= turbo_frame_tag('sidebar') do %>
-<%#---Side nav ---%>
-  <div class="sidenav">
-    <%#---Searchbar---%>
-    <div class="search-bar">
-      <input type="text" class="search-box" placeholder="Search...">
-      <button class="btn btn-warning">Search</button>
-    </div>
-    <div id="filter-button" class="">
-      <a id="trail-difficulty-toggle" data-difficulty="beginner">Beginner</a>
-      <a id="trail-difficulty-toggle" data-difficulty="intermediate">Intermediate</a>
-      <a id="trail-difficulty-toggle" data-difficulty="advanced">Advanced</a>
-      <a id="trail-difficulty-toggle" data-difficulty="expert">Expert Only</a>
-      <a id="trail-difficulty-toggle" data-difficulty="proline">Proline</a>
-    </div>
-    <%#---end---%>
-
-  <%#---Show all trails---%>
-  <div class="trails my-shuffle-container">
-    <% @trails.each do |trail| %>
-      <div class="trails-path" id="trail-shuffle" data-difficulty="<%= trail.difficulty %>" data-title="<%= trail.name %>">
-        <div class="overlay"></div>
-        <%= link_to trail.name, trail_path(trail), class: "trails-content"%>
-        <%= image_tag("svg-difficulty-icons/Ellipse 13.svg", height: 40, width: 40, class: "icon") %>
+  <%#---Side nav ---%>
+    <div class="sidenav" data-controller="filter" data-filter-element-value="#trail-shuffle">
+      <%#---Searchbar---%>
+      <div class="search-bar">
+        <input type="text" class="search-box" data-filter-target='search' placeholder="Search...">
+        <button class="btn btn-warning">Search</button>
       </div>
-    <% end %>
-    <div class="my-sizer-element"></div>
-  </div>
-  <%#---end---%>
+      <div id="filter-button" class="">
+        <a id="trail-difficulty-toggle" data-difficulty="beginner" data-filter-target='toggle'>Beginner</a>
+        <a id="trail-difficulty-toggle" data-difficulty="intermediate" data-filter-target='toggle'>Intermediate</a>
+        <a id="trail-difficulty-toggle" data-difficulty="advanced" data-filter-target='toggle'>Advanced</a>
+        <a id="trail-difficulty-toggle" data-difficulty="expert" data-filter-target='toggle'>Expert Only</a>
+        <a id="trail-difficulty-toggle" data-difficulty="proline" data-filter-target='toggle'>Proline</a>
+      </div>
+      <%#---end---%>
+
+      <%#---Show all trails---%>
+      <div class="trails my-shuffle-container" data-filter-target='elements'>
+        <% @trails.each do |trail| %>
+          <div class="trails-path" id="trail-shuffle" data-difficulty="<%= trail.difficulty %>" data-title="<%= trail.name %>">
+            <div class="overlay"></div>
+            <%= link_to trail.name, trail_path(trail), class: "trails-content"%>
+            <%= image_tag("svg-difficulty-icons/Ellipse 13.svg", height: 40, width: 40, class: "icon") %>
+          </div>
+        <% end %>
+        <div class="my-sizer-element"></div>
+      </div>
+      <%#---end---%>
+    </div>
 <% end %>
