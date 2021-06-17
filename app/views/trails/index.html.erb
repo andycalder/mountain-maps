@@ -16,31 +16,16 @@
     </div>
     <%#---end---%>
 
-    <%#---Show all trails---%>
-    <div class="trails my-shuffle-container">
-      <% @trails.each do |trail| %>
+  <%#---Show all trails---%>
+  <div class="trails my-shuffle-container">
+    <% @trails.each do |trail| %>
       <div class="trails-path" id="trail-shuffle" data-difficulty="<%= trail.difficulty %>" data-title="<%= trail.name %>">
         <div class="overlay"></div>
         <%= link_to trail.name, trail_path(trail), class: "trails-content"%>
-        <i class="fas fa-trailer icon"></i>
+        <%= image_tag("svg-difficulty-icons/Ellipse 13.svg", height: 40, width: 40, class: "icon") %>
       </div>
-      <% end %>
-      <div class="my-sizer-element"></div>
-    </div>
-    <%#---end---%>
+    <% end %>
+    <div class="my-sizer-element"></div>
   </div>
+  <%#---end---%>
 <% end %>
-
-
-    <!-- <div class="trails"> -->
-<!--       <%# @trails.each do |trail| %>
-      <div class="trails-path my-shuffle-container">
-        <div class="trail-suffle" data-groups='["<%# trail.difficulty %>"]' data-title="<%# trail.name %>">
-          <div class="overlay"></div>
-          <%# link_to trail.name, trail_path(trail), class: "trails-content"%>
-          <i class="fas fa-trailer icon"></i>
-        </div>
-        <div class="my-sizer-element"></div>
-      </div>
-      <%# end %>
-    </div> -->
