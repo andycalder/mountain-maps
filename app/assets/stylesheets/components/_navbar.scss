@@ -1,12 +1,56 @@
-.navbar-lewagon {
+// .navbar-lewagon {
+//   justify-content: space-between;
+//   background: white;
+// }
+
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
+
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
+
+.navbar {
+  display: flex;
   justify-content: space-between;
-  background: white;
+  background-color: #000000;
+  padding: 10px 100px 10px 100px;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.right-navbar {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.logo {
+  width: 225px;
+}
+
+.right-navbar .btn-sign-up, .right-navbar .btn-sign-in, .right-navbar .btn-sign-out {
+  margin-left: 20px;
+}
+
+.avatar-large {
+  border: 1px solid #ffffff;
+}
+
+.btn-sign-up {
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: #000000;
+  padding: 10px 20px 10px 20px;
+}
+
+.btn-sign-in, .btn-sign-out {
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #C55929;
+  padding: 10px 25px 10px 25px;
+}
+
+.btn-sign-up:hover, .btn-sign-in:hover, .btn-sign-out:hover {
+  font-weight: bold;
+  color: #ffffff;
 }
