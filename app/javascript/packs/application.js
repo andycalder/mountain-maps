@@ -29,6 +29,8 @@ import "bootstrap";
 // Internal imports
 import { initMapbox } from '../plugins/init_mapbox';
 
+//= require shuffle
+
 document.addEventListener('turbo:load', () => {
   initMapbox();
 });

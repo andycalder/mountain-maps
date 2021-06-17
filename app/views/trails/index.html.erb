@@ -1,9 +1,11 @@
 <%= turbo_frame_tag('sidebar') do %>
-  <ul>
-    <% @trails.each do |trail| %>
-      <li>
-        <%= link_to trail.name, trail_path(trail) %>
-      </li>
-    <% end %>
-  </ul>
+  <div class="my-shuffle-container">
+    <ul>
+      <% @trails.each do |trail| %>
+        <li data-groups="[<% trail.difficulty %>]" data-title="<% trail.name %>">
+          <%= link_to trail.name, trail_path(trail) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
