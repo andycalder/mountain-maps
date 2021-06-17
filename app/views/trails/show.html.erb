@@ -1,14 +1,5 @@
-<%# turbo_frame_tag("sidebar") do %>
-<%# link_to 'Back', mountain_trails_path(@trail.mountain) %>
-<h1><%# @trail.name %></h1>
-<p><%# @trail.difficulty %></p>
-<p><%# @trail.category %></p>
-<%# end %>
-
-<%#Styling Version 1.0%>
 <%= turbo_frame_tag("sidebar") do %>
 <%#---Side nav ---%>
-
 <div class="sidenav">
   <div class="show-title">
     <a href="">
@@ -22,72 +13,39 @@
     <div class="text-content">
       <div class="difficulty">
         <h2>Intermediate</h2>
-        <i class="fab fa-affiliatetheme fs-3"></i>
+        <%= image_tag("svg-difficulty-icons/Ellipse 13.svg", height: 20, width: 20) %>
       </div>
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, sint.</p>
     </div>
-    <img src="https://source.unsplash.com/random" alt="" class="">
+    <img src="https://source.unsplash.com/random" alt="" class="trail-img">
   </div>
 
   <div class="reviews-section">
     <h1>Comments</h1>
+    <%# Reviews card %>
     <div class="reviews-card">
       <img src="https://source.unsplash.com/200x200" alt="" class="avatar">
       <div class="card-contents">
         <h2>Username</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, ipsam.</p>
       </div>
-    </div>
-    <div class="reviews-card">
-      <img src="https://source.unsplash.com/200x200" alt="" class="avatar">
-      <div class="card-contents">
-        <h2>Username</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, ipsam.</p>
-      </div>
-    </div>
-    <div class="reviews-card">
-      <img src="https://source.unsplash.com/200x200" alt="" class="avatar">
-      <div class="card-contents">
-        <h2>Username</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, ipsam.</p>
-      </div>
-    </div>
-    <div class="reviews-card">
-      <img src="https://source.unsplash.com/200x200" alt="" class="avatar">
-      <div class="card-contents">
-        <h2>Username</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, ipsam.</p>
-      </div>
-    </div>
-    <div class="reviews-card">
-      <img src="https://source.unsplash.com/200x200" alt="" class="avatar">
-      <div class="card-contents">
-        <h2>Username</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, ipsam.</p>
-      </div>
-    </div>
-    <div class="reviews-card">
-      <img src="https://source.unsplash.com/200x200" alt="" class="avatar">
-      <div class="card-contents">
-        <h2>Username</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, ipsam.</p>
-      </div>
-    </div>
-    
+    </div>   
+    <%#---end--- %>
+
     <%#Add Review %>
     <div class="add-review">
       <% if user_signed_in? %>
       <!-- Start if user is signed up -->
       <%= simple_form_for [@trail, @review] do |f| %>
       <%= f.input :comment %>
-      <%= f.submit "ADD", class: "btn btn-warning" %>
+      <%= f.submit "ADD", class: "btn btn-warning submit-button" %>
       <% end %>
       <!-- End if user is signed up -->
       <% else %>
       <!-- Start if user is not signed up -->
       <div>
         <p>Sign up to leave a review</p>
-        <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-warning" %>
+        <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-warning submit-button" %>
       </div>
       <!-- End if user is not signed up -->
       <% end %>

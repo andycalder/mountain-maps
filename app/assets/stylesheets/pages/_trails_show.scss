@@ -11,10 +11,15 @@
 .difficulty {
   display: flex;
   justify-content: space-between;
-}
-
-.show-description {
+  align-items: center;
   img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+  }
+}
+.show-description {
+  .trail-img {
     height: 220px;
     object-fit: cover;
     width: 100%;
@@ -47,13 +52,16 @@
 
 // Add reviews
 .add-reviews {
-  #new_review {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-  button {
-    color: #fff;
-  }
+  margin-top: 20px;
+}
+
+.submit-button {
+  margin: 20px 0;
+  width: 100%;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
 }
 
