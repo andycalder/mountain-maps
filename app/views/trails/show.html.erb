@@ -14,9 +14,20 @@
 
   <p>Add a review</p>
   <!-- Start Review form -->
-  <%= simple_form_for [@trail, @review] do |f| %>
-    <%= f.input :comment %>
-    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% if user_signed_in? %>
+    <!-- Start if user is signed up -->
+    <%= simple_form_for [@trail, @review] do |f| %>
+      <%= f.input :comment %>
+      <%= f.submit "Submit review", class: "btn btn-primary" %>
+    <% end %>
+    <!-- End if user is signed up -->
+  <% else %>
+    <!-- Start if user is not signed up -->
+    <div>
+      <p>Sign up to leave a review</p>
+      <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-primary" %>
+    </div>
+    <!-- End if user is not signed up -->
   <% end %>
   <!-- End Review form -->
 <% end %>
