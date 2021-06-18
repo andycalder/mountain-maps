@@ -17,6 +17,37 @@
   color: #fff;
 }
 
+// Button Offcanvas
+
+.btn-offcanvas {
+  background-color:#000000 !important;
+  border:none !important;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+}
+
+.icon-close {
+  color:#ffffff !important;
+  font-size: 30px;
+}
+
+.btn-close {
+  padding: 1em !important;
+}
+
+.fa-bars {
+  font-size: 30px;
+  color: #ffffff;
+}
+
+// Map
+
+#map {
+  height: 610px;
+}
+
 // Search bar && Filter button
 .search-bar {
   display: flex;
