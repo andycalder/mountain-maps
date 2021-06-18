@@ -1,6 +1,45 @@
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
+const fetchPhotoData = (map) => {
+  fetch('/photos', { headers: { accept: "application/json" } })
+    .then(response => response.json())
+    .then(data => {
+      addPhotoMarkers(map, data);
+    });
+};
+
+const addPhotoMarkers = (map, photos) => {
+  photos.forEach((photo) => {
+    // Photo turbo frame
+    const url = `/photos/${photo.id}`;
+    const frame = `<turbo-frame id="photo-popup" src="${url}"></turbo-frame>`;
+
+    // Photo popup
+    const popup = new mapboxgl.Popup({ offset: 25 })
+      .setHTML(frame);
+
+    // Photo marker
+    new mapboxgl.Marker()
+      .setLngLat([photo.longitude, photo.latitude])
+      .setPopup(popup)
+      .addTo(map);
+  });
+};
+
+const displayPhotoUploadForm = (map, e) => {
+  const name = e.features[0].properties.name;
+  const { lng, lat } = e.lngLat;
+  const url = encodeURI(`/photos/new?lng=${lng}&lat=${lat}&name=${name}`);
+  const frame = `<turbo-frame id="photo-popup" src="${url}"></turbo-frame>`;
+
+  const popup = new mapboxgl.Popup()
+    .setLngLat(e.lngLat)
+    .setHTML(frame)
+    .setMaxWidth("350px")
+    .addTo(map);
+};
+
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
@@ -17,17 +56,11 @@ const initMapbox = () => {
     });
 
     map.on('click', 'trails', (e) => {
+      displayPhotoUploadForm(map, e);
+    });
 
-      const name = e.features[0].properties.name;
-      const { lng, lat } = e.lngLat;
-      const url = encodeURI(`/photos/new?lng=${lng}&lat=${lat}&name=${name}`);
-      const frame = `<turbo-frame id="photo-upload" src="${url}"><p>Upload button</p></turbo-frame>`;
-
-      const popup = new mapboxgl.Popup()
-        .setLngLat(e.lngLat)
-        .setHTML(frame)
-        .setMaxWidth("300px")
-        .addTo(map);
+    map.on('load', () => {
+      fetchPhotoData(map);
     });
   }
 };
