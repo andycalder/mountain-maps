@@ -63,3 +63,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Cloudinary for image upload
 gem 'cloudinary', '~> 1.16.0'
+
+gem "hotwire-rails", "~> 0.1.3"
