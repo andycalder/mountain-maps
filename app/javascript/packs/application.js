@@ -31,9 +31,11 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initMountainSlider } from '../components/init_mountain_slider';
 import { initSearch, initDifficultyFilter } from '../plugins/init_shuffle';
 
+//= require shuffle
+
 document.addEventListener('turbo:load', () => {
   initMapbox();
+  initMountainSlider();
   initSearch();
   initDifficultyFilter();
-  initMountainSlider();
 });
