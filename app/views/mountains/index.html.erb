@@ -9,7 +9,9 @@
   <div id="whistler-photo" class="mountain">
     <div class="darken"></div>
     <div class="location">
-      <h1><a href="/mountains/1/trails">Whistler</a></h1>
+        <%= link_to mountain_trails_path(Mountain.first) do %>
+          <h1><%= Mountain.first.name.capitalize %></h1>
+        <% end %>
        <h2>Canada</h2>
      </div>
   </div>
@@ -21,18 +23,3 @@
     </div>
   </div>
 </div>
-
-
- <!--  <% @mountains.each do |mountain| %>
-    <p><%= mountain.name %></p>
-  <% end %> -->
-
-
-<!--   <%= link_to root_path do %>
-  <div>Hey!</div>
-<% end %> -->
-
-
-<!-- /mountains/1/trails -->
-
-
