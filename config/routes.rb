@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create]
   end
 
-  resources :photos, only: [:show, :new, :create]
+  resources :photos, only: [:index, :show, :new, :create]
 end

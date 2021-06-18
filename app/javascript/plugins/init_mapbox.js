@@ -1,6 +1,23 @@
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
+const fetchPhotoData = (map) => {
+  fetch('/photos', { headers: { accept: "application/json" } })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      addPhotoMarkers(map, data);
+    });
+};
+
+const addPhotoMarkers = (map, photos) => {
+  photos.forEach((photo) => {
+    new mapboxgl.Marker()
+      .setLngLat([photo.longitude, photo.latitude])
+      .addTo(map);
+  });
+};
+
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
@@ -28,6 +45,10 @@ const initMapbox = () => {
         .setHTML(frame)
         .setMaxWidth("300px")
         .addTo(map);
+    });
+
+    map.on('load', () => {
+      fetchPhotoData(map);
     });
   }
 };
