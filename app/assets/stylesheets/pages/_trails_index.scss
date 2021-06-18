@@ -14,17 +14,16 @@
   height: 100%;
   padding: 0;
   background: #000;
-  padding: 1em;
   color: #fff;
 }
 
 // Search bar && Filter button
 .search-bar {
   display: flex;
-  padding: 0;
+  padding: 1em;
   justify-content: space-between;
   input {
-    padding: 1em;
+    padding: 10px;
     margin-right: 5px;
     flex-grow: 1;
   }
@@ -37,6 +36,7 @@
 
 #filter-button {
   margin-top: 30px;
+  padding: 1em;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   a {
@@ -44,7 +44,7 @@
     color: white;
     display: inline-block;
     padding: .5em .4em;
-    border: .16em solid #fff;
+    border: .16em solid #e67e22;
     border-right: none;
     margin: 0;
     vertical-align: middle;
@@ -58,12 +58,12 @@
     border-radius: 5px 0px 0px 5px;
   }
   a:last-of-type {
-    border: .16em solid #fff;
+    border: .16em solid #e67e22;
     /* top-left | top-right | bottom-right | bottom-left */
     border-radius: 0px 5px 3px 0px;
   }
   a:hover {
-    background-color: white;
+    background-color: #e67e22;
     color: black;
   }
 }
@@ -80,7 +80,8 @@
   justify-content: space-between;
   align-items: center;
   height: 76px;
-  font-size: 2rem;
+  width: 100%;
+  padding: 1em;
   .icon {
     z-index: 1;
   }
@@ -96,7 +97,7 @@
 .trails-content {
   text-decoration: none;
   color: #fff;
-  font-size: .70em;
+  font-size: 24px;
   z-index: 1;
   
 }

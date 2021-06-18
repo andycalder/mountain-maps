@@ -1,59 +1,62 @@
 <%= turbo_frame_tag("sidebar") do %>
 <%#---Side nav ---%>
 <div class="sidenav">
-  <div class="show-title">
-    <a href="">
-      <i class="fas fa-arrow-left"></i>
-      Back
-    </a>
-    <h1><%= @trail.name %></h1>
-  </div>
-
-  <div class="show-description">
-    <div class="text-content">
-      <div class="difficulty">
-        <h2>Intermediate</h2>
-        <%= image_tag("svg-difficulty-icons/beginner.svg", height: 20, width: 20) %>
-      </div>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, sint.</p>
+  <div class="layout">
+    <div class="show-title">
+      <a href="">
+        <i class="fas fa-arrow-left"></i>
+        Back
+      </a>
+      <h1><%= @trail.name %></h1>
     </div>
-    <img src="https://source.unsplash.com/random" alt="" class="trail-img">
-  </div>
 
-  <div class="reviews-section">
-    <h1>Comments</h1>
-    <%# Reviews card %>
-    <% @reviews.each do |review| %>
-      <div class="reviews-card">
-        <img src="https://source.unsplash.com/200x200" alt="" class="avatar">
-        <div class="card-contents">
-          <h2><%= current_user.nickname %></h2>
-          <p><%= review['comment'] %></p>
+    <div class="show-description">
+      <div class="text-content">
+        <div class="difficulty">
+          <h2><%= @trail.difficulty %></h2>
+          <%= image_tag("svg-difficulty-icons/#{@trail.difficulty}.svg", height: 20, width: 20) %>
         </div>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, sint.</p>
       </div>
-    <% end %>    
-    <%#---end--- %>
+      <img src="https://source.unsplash.com/random" alt="" class="trail-img">
+    </div>
 
-    <%#Add Review %>
-    <div class="add-review">
-      <% if user_signed_in? %>
-      <!-- Start if user is signed up -->
-        <%= simple_form_for [@trail, @review] do |f| %>
-          <%= f.input :comment %>
-          <%= f.submit "ADD", class: "btn btn-warning submit-button" %>
+    <div class="reviews-section">
+      <h1>Comments</h1>
+      <%# Reviews card %>
+      <% @reviews.each do |review| %>
+        <div class="reviews-card">
+          <%= cl_image_tag review.photo.key, class: "avatar" %>
+          <img src="https://source.unsplash.com/200x200" alt="" class="avatar">
+          <div class="card-contents">
+            <h2><%= current_user.nickname %></h2>
+            <p><%= review['comment'] %></p>
+          </div>
+        </div>
+      <% end %>    
+      <%#---end--- %>
+
+      <%#Add Review %>
+      <div class="add-review">
+        <% if user_signed_in? %>
+        <!-- Start if user is signed up -->
+          <%= simple_form_for [@trail, @review] do |f| %>
+            <%= f.input :comment %>
+            <%= f.submit "ADD", class: "btn btn-warning submit-button" %>
+          <% end %>
+        <!-- End if user is signed up -->
+        <% else %>
+        <!-- Start if user is not signed up -->
+          <div>
+            <p>Sign up to leave a review</p>
+            <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-warning submit-button" %>
+          </div>
+        <!-- End if user is not signed up -->
         <% end %>
-      <!-- End if user is signed up -->
-      <% else %>
-      <!-- Start if user is not signed up -->
-        <div>
-          <p>Sign up to leave a review</p>
-          <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-warning submit-button" %>
-        </div>
-      <!-- End if user is not signed up -->
-      <% end %>
-      <!-- End Review form -->
+        <!-- End Review form -->
+      </div>
     </div>
   </div>
-</div>
-<%#--- end --- %>
+  <%#--- end --- %>
+</div>  
 <% end %>
