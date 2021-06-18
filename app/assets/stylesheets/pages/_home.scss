@@ -1,1 +1,99 @@
 // Specific CSS for your home-page
+.three-mountains {
+  height: 610px;
+  width: 100vw;
+  display: flex;
+
+  .mountain {
+    height: 100%;
+    width: calc(100% / 3);
+    flex-grow: 1;
+    flex-shrink: 1;
+    transition: 0.7s width ease-out;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    .darken {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background: rgba(0,0,0,0.5);
+      transition: 0.3s background ease-out;
+      z-index: 0;
+    }
+
+    .location {
+      padding-bottom: 30px;
+      z-index: 1;
+    }
+
+    h1 {
+      color: #ffffff;
+      padding-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 8px;
+      font-weight: 300;
+      text-shadow: #000000 1px 0 10px;
+      // text-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+      color: #ffffff;
+      text-align: center;
+      font-weight: 600;
+      text-shadow: #000000 1px 0 10px;
+      // text-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+      // text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    &:hover {
+      .darken {
+        background: rgba(0,0,0,0);
+      }
+    }
+  }
+
+  .mountain.active {
+    width: 80%;
+    flex-shrink: 0;
+
+    .darken {
+      background: rgba(0,0,0,0);
+    }
+
+  }
+
+  .mountain.inactive {
+    .location {
+      display: none;
+    }
+  }
+}
+
+#chamonix-photo {
+  background: url('https://images.unsplash.com/photo-1605352825608-cfcbf83f55a8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1826&q=80') no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#whistler-photo {
+  background: url('https://images.unsplash.com/photo-1531870884530-8c9e3e3bfa80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80') no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#cardrona-photo {
+  background: url('https://images.unsplash.com/photo-1602859452615-a50cea8834fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2928&q=80') no-repeat;
+  background-size: cover;
+  background-position: center center;
+}

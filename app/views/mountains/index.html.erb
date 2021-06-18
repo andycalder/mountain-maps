@@ -1,5 +1,25 @@
-<h1>Mountains</h1>
-
-<% @mountains.each do |mountain| %>
-  <%= mountain.name %>
-<% end %>
+<div class="three-mountains">
+  <div id="chamonix-photo" class="mountain">
+    <div class="darken"></div>
+    <div class="location">
+      <h1>Chamonix</h1>
+       <h2>France</h2>
+    </div>
+  </div>
+  <div id="whistler-photo" class="mountain">
+    <div class="darken"></div>
+    <div class="location">
+        <%= link_to mountain_trails_path(Mountain.first) do %>
+          <h1><%= Mountain.first.name.capitalize %></h1>
+        <% end %>
+       <h2>Canada</h2>
+     </div>
+  </div>
+  <div id="cardrona-photo" class="mountain">
+    <div class="darken"></div>
+    <div class="location">
+      <h1>Cardrona</h1>
+      <h2>New Zealand</h2>
+    </div>
+  </div>
+</div>
