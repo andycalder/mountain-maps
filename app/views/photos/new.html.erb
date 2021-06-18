@@ -1,4 +1,4 @@
-<%= turbo_frame_tag("photo-upload") do %>
+<%= turbo_frame_tag("photo-popup") do %>
   <%= simple_form_for(@photo) do |f| %>
     <%= f.hidden_field :latitude, required: true %>
     <%= f.hidden_field :longitude, required: true %>
