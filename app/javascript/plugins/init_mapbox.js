@@ -27,6 +27,24 @@ const addPhotoMarkers = (map, photos) => {
   });
 };
 
+const showTrail = (map, trail) => {
+  const start = [trail.start_lng, trail.start_lat];
+
+  new mapboxgl.Popup()
+    .setLngLat(start)
+    .setHTML(`<p>${trail.name}</p>`)
+    .addTo(map);
+
+  map.easeTo({
+    center: start
+  });
+
+  // map.fitBounds([
+  //   [-122.961707, 50.077298], // northeastern corner of the bounds
+  //   [-122.957467, 50.05876] // southwestern corner of the bounds
+  // ]);
+};
+
 const displayPhotoUploadForm = (map, e) => {
   const name = e.features[0].properties.name;
   const { lng, lat } = e.lngLat;
@@ -48,19 +66,34 @@ const initMapbox = () => {
 
     const map = new mapboxgl.Map({
       container: 'map',
-      zoom: 13,
+      zoom: 13.5,
       center: [-122.961, 50.058],
-      pitch: 0,
-      bearing: 80,
+      pitch: 60,
+      bearing: 180,
       style: 'mapbox://styles/andycalder/ckotle8ku65e617sf7wsin9x0'
     });
+
+    const nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-left');
 
     map.on('click', 'trails', (e) => {
       displayPhotoUploadForm(map, e);
     });
 
+    document.addEventListener('showTrail', (e) => {
+      showTrail(map, e.detail);
+    });
+
     map.on('load', () => {
       fetchPhotoData(map);
+    });
+
+    document.querySelectorAll('.trails-path').forEach((element) => {
+      const trail = JSON.parse(element.dataset.json);
+      element.addEventListener('click', () => {
+        const event = new CustomEvent('showTrail', { detail: trail });
+        document.dispatchEvent(event)
+      })
     });
   }
 };
