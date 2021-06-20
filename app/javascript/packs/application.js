@@ -27,14 +27,14 @@ import { Turbo, cable } from '@hotwired/turbo-rails'
 import "bootstrap";
 
 // Internal imports
-import { initMapbox } from '../plugins/init_mapbox';
+import { TrailMap } from '../components/trail_map';
 import { initMountainSlider } from '../components/init_mountain_slider';
 import { initSearch, initDifficultyFilter } from '../plugins/init_shuffle';
 
 //= require shuffle
 
 document.addEventListener('turbo:load', () => {
-  initMapbox();
+  const map = new TrailMap();
   initMountainSlider();
   initSearch();
   initDifficultyFilter();
