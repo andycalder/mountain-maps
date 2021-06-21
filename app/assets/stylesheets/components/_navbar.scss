@@ -14,8 +14,8 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  background-color: #000000;
-  padding: 10px 100px 10px 100px;
+  background-color: $mm-gray;
+  padding: 10px 17px 10px 10px;
   height: 90px;
 }
 
@@ -40,14 +40,14 @@
   border: 1px solid #ffffff;
   border-radius: 5px;
   color: #ffffff;
-  background-color: #000000;
+  background-color: $mm-gray;
   padding: 10px 20px 10px 20px;
 }
 
 .btn-sign-in, .btn-sign-out {
   color: #ffffff;
   border-radius: 5px;
-  background-color: #C55929;
+  background-color: $primary;
   padding: 10px 25px 10px 25px;
 }
 
