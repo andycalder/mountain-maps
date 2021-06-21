@@ -33,6 +33,10 @@ import { initSearch, initDifficultyFilter } from '../plugins/init_shuffle';
 
 //= require shuffle
 
+document.addEventListener('turbo:click', () => {
+  console.log('yaaaaaay');
+});
+
 document.addEventListener('turbo:load', () => {
   const map = new TrailMap();
   initMountainSlider();

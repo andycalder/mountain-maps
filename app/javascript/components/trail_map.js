@@ -10,9 +10,9 @@ class TrailMap {
       container: 'map',
       zoom: 13.5,
       center: [-122.961, 50.058],
-      pitch: 60,
+      pitch: 75,
       bearing: 180,
-      style: 'mapbox://styles/andycalder/ckotle8ku65e617sf7wsin9x0'
+      style: 'mapbox://styles/andycalder/ckq4pb5w13f0d17o83a6vghq3'
     });
 
     const nav = new mapboxgl.NavigationControl();
@@ -20,8 +20,22 @@ class TrailMap {
 
     this.photoMarkers = {};
 
+
+    this.trailPopup = new mapboxgl.Popup({
+      closeButton: false,
+      closeOnClick: false
+    });
+
     this.map.on('click', 'trails', (e) => {
       this.displayPhotoUploadForm(e);
+    });
+
+    this.map.on('mouseenter', 'trails', (e) => {
+      this.displayTrailPopup(e);
+    });
+
+    this.map.on('mouseleave', 'trails', (e) => {
+      this.trailPopup.remove();
     });
 
     document.addEventListener('showTrail', (e) => {
@@ -29,7 +43,9 @@ class TrailMap {
     });
 
     this.map.on('load', () => {
+      mapElement.style.opacity = '100%';
       this.fetchPhotoData();
+      this.animate();
     });
 
     document.querySelectorAll('.trails-path').forEach((element) => {
@@ -39,6 +55,18 @@ class TrailMap {
         document.dispatchEvent(event)
       })
     });
+  }
+
+  displayTrailPopup(e) {
+    const name = e.features[0].properties.name;
+
+    this.trailPopup.setLngLat(e.lngLat)
+      .setHTML(`<p>${name}</p>`)
+      .addTo(this.map);
+  }
+
+  animate() {
+    this.map.easeTo({bearing: 160, duration: 10000});
   }
 
   fetchPhotoData() {
