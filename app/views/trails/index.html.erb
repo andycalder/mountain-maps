@@ -7,22 +7,24 @@
         <input type="text" class="search-box" data-filter-target='search' placeholder="Search...">
         <button class="btn btn-warning">Search</button>
       </div>
-      <div id="filter-button" class="">
-        <a id="trail-difficulty-toggle" data-difficulty="beginner" data-filter-target='toggle'>Beginner</a>
-        <a id="trail-difficulty-toggle" data-difficulty="intermediate" data-filter-target='toggle'>Intermediate</a>
-        <a id="trail-difficulty-toggle" data-difficulty="advanced" data-filter-target='toggle'>Advanced</a>
-        <a id="trail-difficulty-toggle" data-difficulty="expert" data-filter-target='toggle'>Expert Only</a>
-        <a id="trail-difficulty-toggle" data-difficulty="proline" data-filter-target='toggle'>Proline</a>
+      <div id="filter-button">
+        <a id="trail-difficulty-toggle" data-difficulty="beginner" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/beginner.svg", height: 20, width: 20) %></a>
+        <a id="trail-difficulty-toggle" data-difficulty="intermediate" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/intermediate.svg", height: 20, width: 20) %></a>
+        <a id="trail-difficulty-toggle" data-difficulty="advanced" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/advanced.svg", height: 20, width: 20) %></a>
+        <a id="trail-difficulty-toggle" data-difficulty="expert" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/expert.svg", height: 20, width: 20) %></a>
+        <a id="trail-difficulty-toggle" data-difficulty="proline" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/proline.svg", height: 20, width: 20) %></a>
       </div>
       <%#---end---%>
 
       <%#---Show all trails---%>
       <div class="trails my-shuffle-container" data-filter-target='elements'>
         <% @trails.each do |trail| %>
-          <div class="trails-path" id="trail-shuffle" data-difficulty="<%= trail.difficulty %>" data-title="<%= trail.name %>">
+          <div class="trails-path" id="trail-shuffle" data-controller="trail" data-action="click->trail#showTrail" data-difficulty="<%= trail.difficulty %>" data-title="<%= trail.name %>" data-trail-json-value="<%= trail.to_json %>">
             <div class="overlay"></div>
             <%= link_to trail.name, trail_path(trail), class: "trails-content"%>
-            <%= image_tag("svg-difficulty-icons/Ellipse 13.svg", height: 40, width: 40, class: "icon") %>
+            
+            <%# Switch image base on difficulty %>
+            <%= image_tag("svg-difficulty-icons/#{trail.difficulty}.svg", height: 20, width: 20, class: "icon") %>
           </div>
         <% end %>
         <div class="my-sizer-element"></div>

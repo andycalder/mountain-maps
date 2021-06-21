@@ -66,7 +66,7 @@ export default class extends Controller {
         })
         // and then add active to this single one with evt.currentTarget
         evt.currentTarget.classList.add('active')
-        evt.currentTarget.dataset.action = 'click->filter#removeAllFilters'
+        // evt.currentTarget.dataset.action = 'click->filter#removeAllFilters'
 
         // grab the difficulty to shuffle, from the button just clicked (saved as data-difficulty atttribute)
         const buttonDifficulty = evt.currentTarget.dataset.difficulty.toLowerCase();

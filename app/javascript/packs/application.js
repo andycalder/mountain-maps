@@ -3,12 +3,10 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+// require("@rails/ujs").start()
 import "@hotwired/turbo-rails"
 require("@rails/activestorage").start()
 require("channels")
-import 'controllers'
-
-import { Turbo, cable } from '@hotwired/turbo-rails'
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -27,15 +25,19 @@ import { Turbo, cable } from '@hotwired/turbo-rails'
 import "bootstrap";
 
 // Internal imports
-import { initMapbox } from '../plugins/init_mapbox';
+import { TrailMap } from '../components/trail_map';
 import { initMountainSlider } from '../components/init_mountain_slider';
-import { initSearch, initDifficultyFilter } from '../plugins/init_shuffle';
+// import { initSearch, initDifficultyFilter } from '../plugins/init_shuffle';
 
 //= require shuffle
 
 document.addEventListener('turbo:load', () => {
-  initMapbox();
+  console.log('turbo:load');
+  const map = new TrailMap();
   initMountainSlider();
-  initSearch();
-  initDifficultyFilter();
+  // initSearch();
+  // initDifficultyFilter();
 });
+
+// stimulus controllers
+import "controllers"
