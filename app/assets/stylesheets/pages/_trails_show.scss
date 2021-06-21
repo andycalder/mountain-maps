@@ -1,3 +1,8 @@
+// Layout
+.layout {
+  padding: 1em;
+}
+
 // Title section
 .show-title {
   a {
@@ -36,7 +41,8 @@
   align-items: center;
   img {
     margin-right: 20px;
-    width: 50px;
+    margin-bottom: 15px;
+    width: 40px;
     border: 1px solid #fff;
   }
 }
