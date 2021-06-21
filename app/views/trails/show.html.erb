@@ -9,14 +9,18 @@
       </a>
       <h1><%= @trail.name %></h1>
     </div>
-
+    
+    <%# byebug %>
     <div class="show-description">
       <div class="text-content">
         <div class="difficulty">
-          <%= image_tag("svg-difficulty-icons/#{@trail.difficulty}.svg", height: 20, width: 20) %>
-          <h2><%= @trail.difficulty.capitalize() %></h2>          
+          <h3>Difficulty: </h3> 
+          <div class="d-flex align-items-center ms-3">
+            <%= image_tag("svg-difficulty-icons/#{@trail.difficulty}.svg", height: 20, width: 20) %>
+            <h3><%= @trail.difficulty.capitalize() %></h2>          
+          </div>
         </div>
-        
+        <h4>Trail Type: <span class="fst-italic"><%= @trail.category.capitalize() %></span></h4>
       </div>
       
       <%# byebug %>
@@ -59,7 +63,8 @@
       <%# Reviews card %>
       <% @reviews.each do |review| %>
         <div class="reviews-card">
-          <%= cl_image_tag review.user.avatar.key, class: "avatar" %>
+        
+          <img src="<%= review.user.avatar_path %>" alt="" class="avatar">
           <div class="card-contents">
             <h2><%= review.user.nickname %></h2>
             <p><%= review['comment'] %></p>
