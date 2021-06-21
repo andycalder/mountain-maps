@@ -1,6 +1,6 @@
 <%# Navbar %>
 <div class="container-fluid m-0 p-0">
-  <nav class="navbar navbar-expand-sm">
+  <nav class="navbar navbar-expand-sm fixed-top navbar-light">
     <%= link_to mountains_path do %>
      <%= image_tag "logo.png", class: "logo" %>
     <% end %>
@@ -17,7 +17,10 @@
         <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-sign-up" %>
         <%= link_to "Sign In", new_user_session_path, class: "btn btn-sign-in" %>
       <% end %>
+      <button class="btn btn-primary btn-offcanvas" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasScrolling"><i class="fas fa-bars"></i></button>
     </div>
   </nav>
 </div>
 <%# End %>
+
+<!-- <h1>try</h1> -->

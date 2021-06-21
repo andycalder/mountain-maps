@@ -25,7 +25,7 @@ class TrailMap {
     // })
 
     const nav = new mapboxgl.NavigationControl();
-    this.map.addControl(nav, 'top-left');
+    this.map.addControl(nav, 'bottom-left');
 
     this.photoMarkers = {};
 
