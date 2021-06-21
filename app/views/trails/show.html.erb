@@ -26,10 +26,10 @@
       <%# Reviews card %>
       <% @reviews.each do |review| %>
         <div class="reviews-card">
-          <%= cl_image_tag review.photo.key, class: "avatar" %>
+          <%#cl_image_tag review.photo.key, class: "avatar" %>
           <img src="https://source.unsplash.com/200x200" alt="" class="avatar">
           <div class="card-contents">
-            <h2><%= current_user.nickname %></h2>
+            <h2><%= review.user.nickname %></h2>
             <p><%= review['comment'] %></p>
           </div>
         </div>
