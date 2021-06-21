@@ -19,7 +19,7 @@
       <%#---Show all trails---%>
       <div class="trails my-shuffle-container" data-filter-target='elements'>
         <% @trails.each do |trail| %>
-          <div class="trails-path" id="trail-shuffle" data-difficulty="<%= trail.difficulty %>" data-title="<%= trail.name %>">
+          <div class="trails-path" id="trail-shuffle" data-difficulty="<%= trail.difficulty %>" data-title="<%= trail.name %>" data-json="<%= trail.to_json %>">
             <div class="overlay"></div>
             <%= link_to trail.name, trail_path(trail), class: "trails-content"%>
             
