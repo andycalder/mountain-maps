@@ -18,7 +18,40 @@
         </div>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, sint.</p>
       </div>
-      <img src="https://source.unsplash.com/1600x900/?mountain,trails" alt="" class="trail-img">
+      
+      <%# byebug %>
+      <%# Check if the trails has photos? %>
+      <%if @trail.photos.present? %>
+        <div id="carousel-conatainer" class="carousel slide" data-bs-ride="carousel" data-interval="false">>
+          <div class="carousel-inner">
+            <%# byebug %>
+            <% @trail.photos.each_with_index do |photo, index| %>
+              <%# Add active class to the first photo %>
+              <% active_class = index == 0 ? "active" : "" %>
+              <% if photo.image.attached? %>
+                <div class="carousel-item <%= active_class %>">
+                  <%= cl_image_tag(photo.image.key, :width => 500, height: 300, :crop => :fill, class: "d-block w-100") %>
+                </div> 
+              <% else %>
+                <div class="carousel-item <%= active_class %>">
+                  <%# Display a default image for the image that is not attached  %>
+                  <%= image_tag 'default.jpg', class: "d-block w-100"%>
+                </div> 
+              <% end %>
+            <% end %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carousel-conatainer" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carousel-conatainer" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <%# ---end--- %>
+      <% end %>
+      <%# end %>
     </div>
 
     <div class="reviews-section">
@@ -27,7 +60,6 @@
       <% @reviews.each do |review| %>
         <div class="reviews-card">
           <%= cl_image_tag review.photo.key, class: "avatar" %>
-          <img src="https://source.unsplash.com/200x200" alt="" class="avatar">
           <div class="card-contents">
             <h2><%= current_user.nickname %></h2>
             <p><%= review['comment'] %></p>
@@ -36,7 +68,7 @@
       <% end %>    
       <%#---end--- %>
 
-      <%#Add Review %>
+      <%# Add Review %>
       <div class="add-review">
         <% if user_signed_in? %>
         <!-- Start if user is signed up -->
