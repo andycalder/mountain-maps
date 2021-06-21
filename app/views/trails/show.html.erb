@@ -61,7 +61,7 @@
         <div class="reviews-card">
           <%= cl_image_tag review.photo.key, class: "avatar" %>
           <div class="card-contents">
-            <h2><%= current_user.nickname %></h2>
+            <h2><%= review.user.nickname %></h2>
             <p><%= review['comment'] %></p>
           </div>
         </div>

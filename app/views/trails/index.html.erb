@@ -2,24 +2,25 @@
 <%= turbo_frame_tag('sidebar') do %>
   <%#---Side nav ---%>
     <div class="sidenav" data-controller="filter" data-filter-element-value="#trail-shuffle">
+      <h5 class="offcanvas-title">Trails</h5>
       <%#---Searchbar---%>
-      <div class="search-bar">
+      <div class="search-bar p-3">
         <input type="text" class="search-box" data-filter-target='search' placeholder="Search...">
-        <button class="btn btn-warning">Search</button>
+        <button class="btn btn-primary">Search</button>
       </div>
-      <div id="filter-button">
-        <a id="trail-difficulty-toggle" data-difficulty="beginner" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/beginner.svg", height: 20, width: 20) %></a>
-        <a id="trail-difficulty-toggle" data-difficulty="intermediate" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/intermediate.svg", height: 20, width: 20) %></a>
-        <a id="trail-difficulty-toggle" data-difficulty="advanced" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/advanced.svg", height: 20, width: 20) %></a>
-        <a id="trail-difficulty-toggle" data-difficulty="expert" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/expert.svg", height: 20, width: 20) %></a>
-        <a id="trail-difficulty-toggle" data-difficulty="proline" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/proline.svg", height: 20, width: 20) %></a>
+      <div class="btn-group w-100 p-3" role="group">
+        <a class="btn btn-outline-primary" id="trail-difficulty-toggle" data-difficulty="beginner" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/beginner.svg", height: 20, width: 20) %></a>
+        <a class="btn btn-outline-primary" id="trail-difficulty-toggle" data-difficulty="intermediate" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/intermediate.svg", height: 20, width: 20) %></a>
+        <a class="btn btn-outline-primary" id="trail-difficulty-toggle" data-difficulty="advanced" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/advanced.svg", height: 20, width: 20) %></a>
+        <a class="btn btn-outline-primary" id="trail-difficulty-toggle" data-difficulty="expert" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/expert.svg", height: 20, width: 20) %></a>
+        <a class="btn btn-outline-primary" id="trail-difficulty-toggle" data-difficulty="proline" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/proline.svg", height: 20, width: 20) %></a>
       </div>
       <%#---end---%>
 
       <%#---Show all trails---%>
       <div class="trails my-shuffle-container" data-filter-target='elements'>
         <% @trails.each do |trail| %>
-          <div class="trails-path" id="trail-shuffle" data-difficulty="<%= trail.difficulty %>" data-title="<%= trail.name %>">
+          <div class="trails-path" id="trail-shuffle" data-controller="trail" data-action="click->trail#showTrail" data-difficulty="<%= trail.difficulty %>" data-title="<%= trail.name %>" data-trail-json-value="<%= trail.to_json %>">
             <div class="overlay"></div>
             <%= link_to trail.name, trail_path(trail), class: "trails-content"%>
             

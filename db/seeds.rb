@@ -30,8 +30,10 @@ trails.each do |trail|
       name: props['name'],
       difficulty: difficulty(props['difficulty']) || 'beginner',
       category: props['type'] ? 'freeride' : 'technical',
-      latitude: coords[0][1],
-      longitude: coords[0][0]
+      start_lat: coords.first[1],
+      start_lng: coords.first[0],
+      end_lat: coords.last[1],
+      end_lng: coords.last[0]
     )
 
     if record.valid?
