@@ -63,7 +63,6 @@
       <%# Reviews card %>
       <% @reviews.each do |review| %>
         <div class="reviews-card">
-        
           <img src="<%= review.user.avatar_path %>" alt="" class="avatar">
           <div class="card-contents">
             <h2><%= review.user.nickname %></h2>
