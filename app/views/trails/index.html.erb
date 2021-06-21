@@ -22,10 +22,10 @@
         <% @trails.each do |trail| %>
           <div class="trails-path" id="trail-shuffle" data-controller="trail" data-action="click->trail#showTrail" data-difficulty="<%= trail.difficulty %>" data-title="<%= trail.name %>" data-trail-json-value="<%= trail.to_json %>">
             <div class="overlay"></div>
-            <%= link_to trail.name, trail_path(trail), class: "trails-content"%>
-            
             <%# Switch image base on difficulty %>
             <%= image_tag("svg-difficulty-icons/#{trail.difficulty}.svg", height: 20, width: 20, class: "icon") %>
+
+            <%= link_to trail.name, trail_path(trail), class: "trails-content"%>
           </div>
         <% end %>
         <div class="my-sizer-element"></div>
