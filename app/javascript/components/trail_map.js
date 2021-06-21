@@ -49,14 +49,6 @@ class TrailMap {
       this.fetchPhotoData();
       this.animate();
     });
-
-    document.querySelectorAll('.trails-path').forEach((element) => {
-      const trail = JSON.parse(element.dataset.json);
-      element.addEventListener('click', () => {
-        const event = new CustomEvent('showTrail', { detail: trail });
-        document.dispatchEvent(event)
-      })
-    });
   }
 
   displayTrailPopup(e) {
