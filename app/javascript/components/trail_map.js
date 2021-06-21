@@ -17,6 +17,13 @@ class TrailMap {
       style: 'mapbox://styles/andycalder/ckq4pb5w13f0d17o83a6vghq3'
     });
 
+    // this.map.on('load', function () {
+    //   const loader = document.getElementById('preloader');
+    //   if (loader) {
+    //     loader.classList.remove('active');
+    //   }
+    // })
+
     const nav = new mapboxgl.NavigationControl();
     this.map.addControl(nav, 'top-left');
 
@@ -45,7 +52,10 @@ class TrailMap {
     });
 
     this.map.on('load', () => {
-      mapElement.style.opacity = '100%';
+      const loader = document.getElementById('preloader');
+      if (loader) {
+        loader.classList.remove('active');
+      }
       this.fetchPhotoData();
       this.animate();
     });
