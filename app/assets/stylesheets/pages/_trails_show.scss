@@ -15,21 +15,33 @@
 }
 .difficulty {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   img {
     width: 20px;
     height: 20px;
+    margin-right: 10px;
     margin-bottom: 5px;
   }
 }
-.show-description {
-  .trail-img {
-    height: 220px;
-    object-fit: cover;
-    width: 100%;
+
+.trail-images {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+  img {
+    max-width: 100%;
+    height: 100%;
+  }
+  h1 {
+    text-align: center;
+    position: absolute;
   }
 }
+
 
 // Review Section
 .review-section {

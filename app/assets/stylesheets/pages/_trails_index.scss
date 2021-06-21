@@ -64,7 +64,6 @@
 .trails-path {
   position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 76px;
   width: 100%;
@@ -79,14 +78,16 @@
     background-color: #ffffff;
     transform: scaleX(1);
   }
+  img {
+    margin-right: 20px;
+  }
 }
 
 .trails-content {
   text-decoration: none;
   color: #fff;
   font-size: 24px;
-  z-index: 1;
-  
+  z-index: 1;  
 }
 
 // Grey overlay

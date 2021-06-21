@@ -1,6 +1,7 @@
 class Trail < ApplicationRecord
   belongs_to :mountain
   has_many :reviews, dependent: :destroy
+  has_many :photos, dependent: :destroy
 
   validates :name, presence: true
   validates :difficulty, presence: true, inclusion: { in: %w(beginner intermediate advanced expert proline) }
