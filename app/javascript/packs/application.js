@@ -3,7 +3,8 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("@rails/ujs").start()
+// require("@rails/ujs").start()
+import "@hotwired/turbo-rails"
 require("@rails/activestorage").start()
 require("channels")
 
@@ -30,11 +31,8 @@ import { initMountainSlider } from '../components/init_mountain_slider';
 
 //= require shuffle
 
-document.addEventListener('turbo:click', () => {
-  console.log('yaaaaaay');
-});
-
 document.addEventListener('turbo:load', () => {
+  console.log('turbo:load');
   const map = new TrailMap();
   initMountainSlider();
   // initSearch();

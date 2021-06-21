@@ -4,7 +4,9 @@ import mapboxgl from 'mapbox-gl';
 class TrailMap {
   constructor() {
     const mapElement = document.getElementById('map');
+    if (!mapElement) return;
     mapboxgl.accessToken = mapElement.dataset.mapboxAccessToken;
+
 
     this.map = new mapboxgl.Map({
       container: 'map',
