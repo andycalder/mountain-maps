@@ -10,7 +10,8 @@ class TrailMap {
     this.map = new mapboxgl.Map({
       container: 'map',
       zoom: 13.5,
-      center: [-122.961, 50.058],
+      //center: [-122.961, 50.058],
+      center: [-122.964, 50.087],
       pitch: 75,
       bearing: 180,
       style: 'mapbox://styles/andycalder/ckq4pb5w13f0d17o83a6vghq3'
@@ -31,6 +32,7 @@ class TrailMap {
     this.map.on('mouseleave', 'trails', e => this.hideTrailPopup());
 
     document.addEventListener('showTrail', e => this.showTrail(e.detail));
+    document.addEventListener('resetCamera', () => this.resetCamera());
     document.addEventListener('showSidebar', e => this.showSidebar());
     document.addEventListener('hideSidebar', e => this.hideSidebar());
 
@@ -45,14 +47,16 @@ class TrailMap {
   }
 
   showSidebar() {
+    const width = document.getElementById('offcanvasExample').clientWidth;
+
     this.map.easeTo({
-      padding: {top: 0, bottom: 0, left: 0, right: 300}
+      padding: { top: 0, bottom: 0, left: 0, right: width }
     });
   }
 
   hideSidebar() {
     this.map.easeTo({
-      padding: {top: 0, bottom: 0, left: 0, right: 0}
+      padding: { top: 0, bottom: 0, left: 0, right: 0 }
     });
   }
 
@@ -106,6 +110,7 @@ class TrailMap {
   showTrail(trail) {
     this.map.setPaintProperty('trails', 'line-color', 'grey');
     this.map.setFilter('hover', ['==', ['get', 'name'], trail.name]);
+    this.map.setFilter('hover case', ['==', ['get', 'name'], trail.name]);
 
     const start = [trail.start_lng, trail.start_lat];
 
@@ -117,6 +122,19 @@ class TrailMap {
     this.map.flyTo({
       center: start,
       zoom: 14.5
+    });
+  }
+
+  resetCamera() {
+    this.map.setPaintProperty('trails', 'line-color', 'yellow');
+    this.map.setFilter('hover', ['==', ['get', 'name'], '']);
+    this.map.setFilter('hover case', ['==', ['get', 'name'],'']);
+
+    this.trailPopup.remove();
+
+    this.map.flyTo({
+      center: [-122.964, 50.087],
+      zoom: 13.5
     });
   }
 

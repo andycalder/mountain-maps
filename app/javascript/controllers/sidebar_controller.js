@@ -7,8 +7,13 @@ export default class extends Controller {
   }
 
   toggleSidebar() {
+    const event = new Event(this.visible ? 'hideSidebar' : 'showSidebar');
     this.visible = !this.visible;
-    const event = new CustomEvent(this.visible ? 'hideSidebar' : 'showSidebar');
+    document.dispatchEvent(event);
+  }
+
+  resetCamera() {
+    const event = new Event('resetCamera');
     document.dispatchEvent(event);
   }
 }
