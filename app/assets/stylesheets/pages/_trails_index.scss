@@ -16,7 +16,7 @@
 .offcanvas-end {
   bottom: $spacer;
   border-radius: $border-radius;
-  top: 0;
+  top: 90px;
   right: $spacer;
 }
 
@@ -84,6 +84,7 @@
   &:hover .overlay {
     background-color: #8d8c8c;
     transform: scaleX(1);
+    
   }
   &:hover .side-line {
     display: block;
