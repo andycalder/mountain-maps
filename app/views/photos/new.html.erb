@@ -1,12 +1,12 @@
 <%= turbo_frame_tag("photo-popup") do %>
   <%= simple_form_for(@photo) do |f| %>
-    <div data-controller="photo-preview">
-      <img class="js-image-preview" src="#" alt="your image" data-photo-preview-target="photoPreview"/>
-      <%= f.hidden_field :latitude, required: true %>
-      <%= f.hidden_field :longitude, required: true %>
-      <%= f.hidden_field :trail_id, value: @trail_id, required: true %>
-      <%= f.input :image, as: :file, class: "js-image-upload", :input_html => { :data => {'photo-preview-target': "photoInput", action: "change->photo-preview#showPhotoPreview"} } %>
-      <%= f.button :submit, "Upload", class: "btn btn-primary" %>
+    <%= f.hidden_field :latitude, required: true %>
+    <%= f.hidden_field :longitude, required: true %>
+    <%= f.hidden_field :trail_id, value: @trail_id, required: true %>
+    <div class='photo-preview' data-controller="photo-preview">
+      <%= image_tag 'add_photo.webp', class: "photo-preview__preview", :data => { 'photo-preview-target': "photoPreview" } %>
+      <%= f.input :image, as: :file, label: false, input_html: { class: "photo-preview__input", :data => {'photo-preview-target': "photoInput", action: "change->photo-preview#showPhotoPreview"} } %>
     </div>
+    <%= f.button :submit, "Upload", class: "btn btn-primary" %>
   <% end %>
 <% end %>
