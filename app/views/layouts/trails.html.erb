@@ -23,15 +23,12 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
-    <!-- <button class="btn btn-primary btn-offcanvas" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasScrolling"><i class="fas fa-bars"></i></button> -->
-
     <div id="map" data-mapbox-access-token="<%= ENV['MAPBOX_ACCESS_TOKEN'] %>">
-      <button class="btn btn-primary btn-offcanvas" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasScrolling"><i class="fas fa-bars"></i></button>
     </div>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
       <div class="offcanvas-header">
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fas fa-times icon-close"></i></i></button>
+        <!-- <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fas fa-times icon-close"></i></button> -->
       </div>
       <div class="offcanvas-body">
         <%= yield %>

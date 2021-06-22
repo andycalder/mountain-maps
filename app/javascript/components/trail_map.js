@@ -96,6 +96,7 @@ class TrailMap {
 
         // Photo popup
         const popup = new mapboxgl.Popup({ offset: 25 })
+          .setMaxWidth('500px')
           .setHTML(frame);
 
         // Photo marker
@@ -145,6 +146,7 @@ class TrailMap {
     const frame = `<turbo-frame id="photo-popup" src="${url}"></turbo-frame>`;
 
     const popup = new mapboxgl.Popup()
+      .setMaxWidth('500px')
       .setLngLat(e.lngLat)
       .setHTML(frame)
       .addTo(this.map);

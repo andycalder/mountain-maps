@@ -1,6 +1,6 @@
 // Layout
 .layout {
-  padding: 1em;
+  margin: 1em;
 }
 
 // Title section
@@ -12,15 +12,21 @@
     margin-bottom: 20px;
     font-size: 24px;
   }
+
+  h1 {
+    font-weight: 700;
+    font-size: 3.3em;
+  }
 }
-.difficulty {
-  display: flex;
-  align-items: center;
+.text-content {
   img {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    margin-bottom: 5px;
+   position: relative;
+   margin-top: -17px;
+   margin-right: 5px;
+  }
+
+  p {
+    margin-left: 4px;
   }
 }
 
@@ -42,29 +48,47 @@
   }
 }
 
-
 // Review Section
 .review-section {
-  margin-top: 30px;
+  margin-top: 1em;
+}
+
+.reviews-display {
+  background-color: $mm-lightgray;
+  padding: 1em;
 }
 
 .reviews-card {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+
   img {
-    margin-right: 20px;
-    margin-bottom: 15px;
-    width: 40px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 60px;
     border: 1px solid #fff;
   }
+
+ .reviews-head {
+    h2 {
+      margin: 0;
+      font-size: 1.3em;
+      color: $mm-gray-font;
+    }
+
+    p {
+      font-size: 0.9em;
+      color: $mm-light-font;
+    }
+ }
 }
 
 .card-contents{
-  h2 {
-    font-size: 16px;
-  }
+  margin-bottom: 1em;
   p {
-    font-size: .75em;
+    font-size: 1em;
+    color: $mm-gray-font;
+    margin: 0px;
   }
 }
 

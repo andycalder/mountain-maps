@@ -5,6 +5,7 @@
       <%= f.hidden_field :longitude, required: true %>
       <%= f.hidden_field :trail_id, value: @trail_id, required: true %>
       <%= f.input :image, as: :file %>
+      <%# add stimulus controller to the upload button %>
       <%= button_tag type: 'submit', class: "upload-btn", data: {controller: "disable-onclick", disable_onclick_disabled_text_value: "Uploading...", action: "click->disable-onclick#disable"} do %>
           <i class="fas fa-cloud-upload-alt"></i> Upload
       <% end %>

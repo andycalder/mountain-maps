@@ -1,12 +1,13 @@
 <%= turbo_frame_tag('sidebar') do %>
   <%#---Side nav ---%>
   <div class="sidenav" data-controller="filter" data-filter-element-value="#trail-shuffle">
-    <h5 class="offcanvas-title">Trails</h5>
+    <h5 class="offcanvas-title px-3"><span class="title-first-letter">T</span>rails</h5>
+    <h6 class="offcanvas-city px-3 pb-2">Whistler</h6>
     <%#---Searchbar---%>
-    <div class="search-bar p-3">
+    <div class="search-bar px-3 pb-3">
       <input type="text" class="search-box" data-filter-target='search' placeholder="Search...">
     </div>
-    <div class="btn-group w-100 p-3" role="group">
+    <div class="btn-group w-100 px-3 pb-2" role="group">
       <a class="btn btn-outline-primary" title="Beginner" id="trail-difficulty-toggle" data-difficulty="beginner" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/beginner.svg", height: 20, width: 20) %></a>
       <a class="btn btn-outline-primary" title="Intermediate" id="trail-difficulty-toggle" data-difficulty="intermediate" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/intermediate.svg", height: 20, width: 20) %></a>
       <a class="btn btn-outline-primary" title="Advanced" id="trail-difficulty-toggle" data-difficulty="advanced" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/advanced.svg", height: 20, width: 20) %></a>
@@ -18,8 +19,24 @@
     <%#---Show all trails---%>
     <div class="trails my-shuffle-container" data-filter-target='elements'>
       <% @trails.each do |trail| %>
+        <%# Set a color variable based on the trail difficulty
+          # and add a border left into the overlay class
+        %>
+        <% color = ""  %>
+        <% if trail.difficulty == 'beginner' %>
+          <% color = "green" %>
+        <% elsif trail.difficulty == 'intermediate' %>
+          <% color = "blue" %>
+        <% elsif trail.difficulty == 'advanced' %>
+          <% color = "gray" %>
+        <% elsif trail.difficulty == 'expert' %>
+          <% color = "black" %>
+        <% else trail.difficulty == 'proline' %>
+          <% color = "red" %>
+        <% end %>
+        <%#---end---%>
         <div class="trails-path" id="trail-shuffle" data-controller="trail" data-action="click->trail#showTrail" data-difficulty="<%= trail.difficulty %>" data-title="<%= trail.name %>" data-trail-json-value="<%= trail.to_json %>">
-          <div class="overlay"></div>
+          <div class="overlay <%= color %>"></div>
           <%# Switch image base on difficulty %>
           <%= image_tag("svg-difficulty-icons/#{trail.difficulty}.svg", height: 20, width: 20, class: "icon") %>
 
@@ -31,3 +48,6 @@
     <%#---end---%>
   </div>
 <% end %>
+
+<!-- try -->
+
