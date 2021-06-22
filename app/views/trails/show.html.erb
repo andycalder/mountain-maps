@@ -1,94 +1,94 @@
 <%= turbo_frame_tag("sidebar") do %>
   <%#---Side nav ---%>
   <div class="sidenav">
-    <div class="layout">
-      <div class="show-title">
-        <a href="" data-controller="sidebar" data-action="click->sidebar#resetCamera">
-          <i class="fas fa-arrow-left"></i>
-          Back
-        </a>
-        <h1><%= @trail.name %></h1>
-      </div>
-      
-      <div class="show-description">
-        <div class="text-content">
-          <div class="difficulty">
-            <h3>Difficulty: </h3> 
-            <div class="d-flex align-items-center ms-3">
-              <%= image_tag("svg-difficulty-icons/#{@trail.difficulty}.svg", height: 20, width: 20) %>
-              <h3><%= @trail.difficulty.capitalize() %></h2>          
-            </div>
-          </div>
-          <h4>Trail Type: <span class="fst-italic"><%= @trail.category.capitalize() %></span></h4>
+    <div class="layout show-title">
+      <a href="" data-controller="sidebar" data-action="click->sidebar#resetCamera">
+        <i class="fas fa-arrow-left"></i>
+        Back
+      </a>
+    </div>
+
+    <%# Check if the trails has photos? %>
+    <%if @trail.photos.present? %>
+      <div id="carousel-conatainer" class="carousel slide" data-interval="false">
+        <div class="carousel-inner">
+          <% @trail.photos.each_with_index do |photo, index| %>
+            <%# Add active class to the first photo %>
+            <% active_class = index == 0 ? "active" : "" %>
+            <% if photo.image.attached? %>
+              <div class="carousel-item <%= active_class %>">
+                <%= cl_image_tag(photo.image.key, :width => 500, height: 300, :crop => :fill, class: "d-block w-100") %>
+              </div>
+            <% else %>
+              <div class="carousel-item <%= active_class %>">
+                <%# Display a default image for the image that is not attached %>
+                <%= image_tag 'default.jpg', class: "d-block w-100"%>
+              </div>
+            <% end %>
+          <% end %>
         </div>
-      
-        <%# Check if the trails has photos? %>
-        <%if @trail.photos.present? %>
-          <div id="carousel-conatainer" class="carousel slide" data-bs-ride="carousel" data-interval="false">>
-            <div class="carousel-inner">
-              <% @trail.photos.each_with_index do |photo, index| %>
-                <%# Add active class to the first photo %>
-                <% active_class = index == 0 ? "active" : "" %>
-                <% if photo.image.attached? %>
-                  <div class="carousel-item <%= active_class %>">
-                    <%= cl_image_tag(photo.image.key, :width => 500, height: 300, :crop => :fill, class: "d-block w-100") %>
-                  </div> 
-                <% else %>
-                  <div class="carousel-item <%= active_class %>">
-                    <%# Display a default image for the image that is not attached %>
-                    <%= image_tag 'default.jpg', class: "d-block w-100"%>
-                  </div> 
-                <% end %>
-              <% end %>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-conatainer" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carousel-conatainer" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-          <%# ---end--- %>
-        <% end %>
-        <%# end %>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-conatainer" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel-conatainer" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    <% end %>
+
+    <div class="layout show-title">
+      <div class="show-title">
+        <h1 class="mt-3"><%= @trail.name %></h1>
+      </div>
+      <div class="show-description">
+        <div class="text-content d-flex align-items-center">
+          <%= image_tag("svg-difficulty-icons/#{@trail.difficulty}.svg", height: 15, width: 15) %>
+          <p><%= @trail.difficulty.upcase %> -</p>
+          <p><%= @trail.category.upcase %></p>
+        </div>
       </div>
 
-      <div class="reviews-section">
-        <h1>Comments</h1>
-        <%# Reviews cards %>
+    </div>
+    <div class="reviews-section">
+      <div class="reviews-display">
+      <%# Reviews cards %>
         <% @reviews.each do |review| %>
           <div class="reviews-card">
             <img src="<%= review.user.avatar_path %>" alt="" class="avatar">
-            <div class="card-contents">
+            <div class="reviews-head">
               <h2><%= review.user.nickname %></h2>
-              <p><%= review['comment'] %></p>
+              <p> Posted <%= (Date.today - review.created_at.to_date).to_i %> days ago<p>
             </div>
           </div>
-        <% end %>    
+          <div class="card-contents">
+            <p><%= review['comment'] %></p>
+          </div>
+          <hr>
+        <% end %>
         <%#---end--- %>
-        <%# Add Review %>
-        <div class="add-review">
-          <% if user_signed_in? %>
-          <!-- Start if user is signed up -->
-            <%= simple_form_for [@trail, @review] do |f| %>
-              <%= f.input :comment %>
-              <%= f.submit "ADD", class: "btn btn-warning submit-button" %>
-            <% end %>
-          <!-- End if user is signed up -->
-          <% else %>
-          <!-- Start if user is not signed up -->
-            <div>
-              <p>Sign up to leave a review</p>
-              <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-warning submit-button" %>
-            </div>
-          <!-- End if user is not signed up -->
+      </div>
+      <%# Add Review %>
+      <div class="add-review mx-3">
+        <% if user_signed_in? %>
+        <!-- Start if user is signed up -->
+          <%= simple_form_for [@trail, @review] do |f| %>
+            <%= f.input :comment, label: 'Add a review'%>
+            <%= f.submit "ADD", class: "btn btn-warning submit-button" %>
           <% end %>
-          <!-- End Review form -->
-        </div>
+        <!-- End if user is signed up -->
+        <% else %>
+        <!-- Start if user is not signed up -->
+          <div>
+            <p>Sign up to leave a review</p>
+            <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-warning submit-button" %>
+          </div>
+        <!-- End if user is not signed up -->
+        <% end %>
+        <!-- End Review form -->
       </div>
     </div>
-    <%#--- end --- %>
-  </div>  
+  </div>
+  <%#--- end --- %>
 <% end %>
