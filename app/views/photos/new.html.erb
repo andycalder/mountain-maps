@@ -4,7 +4,10 @@
       <%= f.hidden_field :latitude, required: true %>
       <%= f.hidden_field :longitude, required: true %>
       <%= f.hidden_field :trail_id, value: @trail_id, required: true %>
-      <%= f.input :image, as: :file %>
+      <div class='photo-preview' data-controller="photo-preview">
+        <%= image_tag 'add_photo.webp', class: "photo-preview__preview", :data => { 'photo-preview-target': "photoPreview" } %>
+        <%= f.input :image, as: :file, label: false, input_html: { class: "photo-preview__input", :data => {'photo-preview-target': "photoInput", action: "change->photo-preview#showPhotoPreview"} } %>
+      </div>
       <%# add stimulus controller to the upload button %>
       <%= button_tag type: 'submit', class: "upload-btn", data: {controller: "disable-onclick", disable_onclick_disabled_text_value: "Uploading...", action: "click->disable-onclick#disable"} do %>
           <i class="fas fa-cloud-upload-alt"></i> Upload

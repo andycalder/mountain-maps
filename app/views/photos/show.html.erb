@@ -4,14 +4,7 @@
     <%= cl_image_tag(@photo.image.key, height:"300", width: "400", crop:"fill") %>
     <div class="content">
       <p class="me-2"><%= @photo.user.nickname %></p>
-      <% time = Time.now - @photo.created_at.to_date %>
-      <% duration = "" %>
-      <% if (time / 3600) > 24 %>
-        <p class="text-secondary text-end"> Posted <%= (Date.today - review.created_at.to_date).to_i %> days ago<p>
-        <% elsif time /  %>
-      <% end %>
-      
-      
+      <p class="text-secondary text-end"> Posted <%= (Date.today - review.created_at.to_date).to_i %> days ago<p>
     </div>
   </div>
 <% end %>
