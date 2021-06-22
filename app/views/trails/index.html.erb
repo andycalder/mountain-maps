@@ -1,12 +1,13 @@
 <%= turbo_frame_tag('sidebar') do %>
   <%#---Side nav ---%>
   <div class="sidenav" data-controller="filter" data-filter-element-value="#trail-shuffle">
-    <h5 class="offcanvas-title"><span class="title-first-letter">T</span>rails</h5>
+    <h5 class="offcanvas-title px-3"><span class="title-first-letter">T</span>rails</h5>
+    <h6 class="offcanvas-city px-3 pb-2">Whistler</h6>
     <%#---Searchbar---%>
-    <div class="search-bar p-3">
+    <div class="search-bar px-3 pb-3">
       <input type="text" class="search-box" data-filter-target='search' placeholder="Search...">
     </div>
-    <div class="btn-group w-100 p-3" role="group">
+    <div class="btn-group w-100 px-3 pb-2" role="group">
       <a class="btn btn-outline-primary" title="Beginner" id="trail-difficulty-toggle" data-difficulty="beginner" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/beginner.svg", height: 20, width: 20) %></a>
       <a class="btn btn-outline-primary" title="Intermediate" id="trail-difficulty-toggle" data-difficulty="intermediate" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/intermediate.svg", height: 20, width: 20) %></a>
       <a class="btn btn-outline-primary" title="Advanced" id="trail-difficulty-toggle" data-difficulty="advanced" data-filter-target='toggle'><%= image_tag("svg-difficulty-icons/advanced.svg", height: 20, width: 20) %></a>

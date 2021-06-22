@@ -6,16 +6,24 @@
 }
 
 .offcanvas-title {
-  padding: 1em;
   text-transform: uppercase;
-  font-family: $trails-font;
+  font-family: $body-font;
   font-weight: 600;
   font-size: 30px;
-  color: rgb(169,169,169);
+  color: $mm-normalgray;
+  letter-spacing: 1px;
 }
 
 .title-first-letter {
   color: $mm-orange;
+}
+
+.offcanvas-city {
+  font-weight: 300;
+  color: $mm-white;
+  font-size: 20px;
+  font-family: $body-font;
+  letter-spacing: 1px;
 }
 
 .offcanvas-body {
@@ -56,6 +64,9 @@
 }
 
 // Search bar && Filter button
+.search-box {
+  border-radius:$border-radius !important;
+}
 .search-bar {
   display: flex;
   justify-content: space-between;
@@ -81,62 +92,63 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: 65px;
+  height: 45px;
   width: 100%;
   padding: 1em;
   .icon {
     z-index: 1;
   }
   &:hover .trails-content{
-    color: rgb(245,245,245);
+    color: $mm-white;
+    font-weight: 500;
   }
   &:hover .overlay {
     background-color: $mm-lightgray;
     transform: scaleX(1);
     &.green {
      border-left: 8px solid $green-500;
-     border-radius: 5px 0px 0px 5px;
-    //  border-image: linear-gradient(
-    //   to bottom,
-    //   $green-500,
-    //   rgba(0, 0, 0, 0)
-    // ) 1 100%;
+     border-image: linear-gradient(
+      to bottom,
+      $green-500,
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+     border-radius: 5px 0px 0px 5px !important;
     }
     &.blue {
      border-left: 8px solid $blue-700;
-     border-radius: 5px 0px 0px 5px;
-    //  border-image: linear-gradient(
-    //   to bottom,
-    //   $blue-700,
-    //   rgba(0, 0, 0, 0)
-    // ) 1 100%;
+     border-image: linear-gradient(
+      to bottom,
+      $blue-700,
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+     border-radius: 5px 0px 0px 5px !important;
     }
     &.gray {
      border-left: 8px solid $gray-700;
-     border-radius: 5px 0px 0px 5px;
-    //  border-image: linear-gradient(
-    //   to bottom,
-    //   $light-gray,
-    //   rgba(0, 0, 0, 0)
-    // ) 1 100%;
+     border-image: linear-gradient(
+      to bottom,
+      $light-gray,
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+     border-radius: 5px 0px 0px 5px !important;
     }
     &.black {
      border-left: 8px solid $black;
-     border-radius: 5px 0px 0px 5px;
-    //  border-image: linear-gradient(
-    //   to bottom,
-    //   black,
-    //   rgba(0, 0, 0, 0)
-    // ) 1 100%;
+     border-image: linear-gradient(
+      to bottom,
+      black,
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+     border-radius: 5px 0px 0px 5px !important;
     }
     &.red {
      border-left: 8px solid $red-600;
-     border-radius: 5px 0px 0px 5px;
-    //  border-image: linear-gradient(
-    //   to bottom,
-    //   red,
-    //   rgba(0, 0, 0, 0)
-    // ) 1 100%;
+     border-image: linear-gradient(
+      to bottom,
+      red,
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+     border-radius: 5px 0px 0px 5px !important;
     }
   }
   img {
@@ -147,11 +159,11 @@
 
 .trails-content {
   text-decoration: none;
-  color: rgb(169,169,169);
+  color: $mm-normalgray;
   font-size: 17px;
   z-index: 1;  
-  font-weight: 300;
-  font-family: $trails-font;
+  font-weight: 400;
+  font-family: $body-font;
 }
 
 
@@ -159,10 +171,10 @@
 .overlay {
   // width: 700px;
   width: 370px;
-  height: 65px;
+  height: 45px;
   top: 0;
   left: 10px;
-  background-color: #1A1D21;
+  background-color: $mm-darkgray;
   transform-origin: left;
   // background-color: $mm-lightgray;
   // border-bottom: 1px solid $mm-orange;

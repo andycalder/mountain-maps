@@ -3,11 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&family=Open+Sans:wght@300;400;600;700;800&family=Roboto:wght@100;300;400;500;700;900&family=Saira+Extra+Condensed:wght@100;300;400;500;600;700;800&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
+// $body-font: "Work Sans", "Helvetica", "sans-serif";
+$body-font: 'Manrope', sans-serif;
 $headers-font: "Nunito", "Helvetica", "sans-serif";
 
 // Trails fonts
-$trails-font: 'Manrope', sans-serif;
+// $trails-font: 'Manrope', sans-serif;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
