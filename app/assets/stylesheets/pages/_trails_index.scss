@@ -10,7 +10,7 @@
   font-family: $body-font;
   font-weight: 600;
   font-size: 30px;
-  color: $mm-normalgray;
+  color: $mm-gray-font;
   letter-spacing: 1px;
 }
 
@@ -107,47 +107,47 @@
     transform: scaleX(1);
     &.green {
      border-left: 8px solid $green-500;
-     border-image: linear-gradient(
-      to bottom,
-      $green-500,
-      rgba(0, 0, 0, 0)
-    ) 1 100%;
+    //  border-image: linear-gradient(
+    //   to bottom,
+    //   $green-500,
+    //   rgba(0, 0, 0, 0)
+    // ) 1 100%;
      border-radius: 5px 0px 0px 5px !important;
     }
     &.blue {
      border-left: 8px solid $blue-700;
-     border-image: linear-gradient(
-      to bottom,
-      $blue-700,
-      rgba(0, 0, 0, 0)
-    ) 1 100%;
+    //  border-image: linear-gradient(
+    //   to bottom,
+    //   $blue-700,
+    //   rgba(0, 0, 0, 0)
+    // ) 1 100%;
      border-radius: 5px 0px 0px 5px !important;
     }
     &.gray {
      border-left: 8px solid $gray-700;
-     border-image: linear-gradient(
-      to bottom,
-      $light-gray,
-      rgba(0, 0, 0, 0)
-    ) 1 100%;
+    //  border-image: linear-gradient(
+    //   to bottom,
+    //   $light-gray,
+    //   rgba(0, 0, 0, 0)
+    // ) 1 100%;
      border-radius: 5px 0px 0px 5px !important;
     }
     &.black {
      border-left: 8px solid $black;
-     border-image: linear-gradient(
-      to bottom,
-      black,
-      rgba(0, 0, 0, 0)
-    ) 1 100%;
+    //  border-image: linear-gradient(
+    //   to bottom,
+    //   black,
+    //   rgba(0, 0, 0, 0)
+    // ) 1 100%;
      border-radius: 5px 0px 0px 5px !important;
     }
     &.red {
      border-left: 8px solid $red-600;
-     border-image: linear-gradient(
-      to bottom,
-      red,
-      rgba(0, 0, 0, 0)
-    ) 1 100%;
+    //  border-image: linear-gradient(
+    //   to bottom,
+    //   red,
+    //   rgba(0, 0, 0, 0)
+    // ) 1 100%;
      border-radius: 5px 0px 0px 5px !important;
     }
   }
@@ -159,7 +159,7 @@
 
 .trails-content {
   text-decoration: none;
-  color: $mm-normalgray;
+  color: $mm-gray-font;
   font-size: 17px;
   z-index: 1;  
   font-weight: 400;
@@ -176,8 +176,6 @@
   left: 10px;
   background-color: $mm-darkgray;
   transform-origin: left;
-  // background-color: $mm-lightgray;
-  // border-bottom: 1px solid $mm-orange;
   position: absolute;
   z-index: 0;
   transition: background-color .4s;
