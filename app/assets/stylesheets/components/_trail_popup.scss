@@ -1,0 +1,19 @@
+.trail-popup {
+  display: flex;
+  background-color: $mm-gray;
+  align-items: center;
+  padding: 1em;
+  color: $mm-light-font;
+  border-radius: $border-radius;
+
+  p {
+    padding-left: 1em;
+    font-size: 1.5em;
+    margin-bottom: 0px;
+  }
+
+  img {
+    height: 20px;
+    width: 20px;
+  }
+}
