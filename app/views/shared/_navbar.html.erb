@@ -17,10 +17,11 @@
         <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-sign-up" %>
         <%= link_to "Sign In", new_user_session_path, class: "btn btn-sign-in" %>
       <% end %>
-      <button class="btn btn-primary btn-offcanvas" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasScrolling"><i class="fas fa-bars"></i></button>
+      <% if current_page?(mountain_trails_path(Mountain.first)) %>
+        <button class="btn btn-primary btn-offcanvas" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasScrolling"><i class="fas fa-bars"></i></button>
+      <% end %>
     </div>
   </nav>
 </div>
 <%# End %>
 
-<!-- <h1>try</h1> -->
