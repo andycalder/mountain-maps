@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_one_attached :photo
 
+  
   validates :nickname, presence: true
 
   def avatar_path
