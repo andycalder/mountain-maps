@@ -1,0 +1,25 @@
+.photo-preview {
+  background-color: #eee;
+  height: 300px;
+  width: 400px;
+  border: 1px solid #ccc;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $spacer;
+
+  &__preview {
+    width: 25%;
+    height: auto;
+  }
+
+  &__input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+}

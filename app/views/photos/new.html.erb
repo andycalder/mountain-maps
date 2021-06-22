@@ -3,7 +3,10 @@
     <%= f.hidden_field :latitude, required: true %>
     <%= f.hidden_field :longitude, required: true %>
     <%= f.hidden_field :trail_id, value: @trail_id, required: true %>
-    <%= f.input :image, as: :file %>
-    <%= f.button :submit, "Upload", class: "btn btn-primary"%>
+    <div class='photo-preview' data-controller="photo-preview">
+      <%= image_tag 'add_photo.webp', class: "photo-preview__preview", :data => { 'photo-preview-target': "photoPreview" } %>
+      <%= f.input :image, as: :file, label: false, input_html: { class: "photo-preview__input", :data => {'photo-preview-target': "photoInput", action: "change->photo-preview#showPhotoPreview"} } %>
+    </div>
+    <%= f.button :submit, "Upload", class: "btn btn-primary" %>
   <% end %>
 <% end %>
