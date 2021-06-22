@@ -13,6 +13,13 @@
   padding: 0;
 }
 
+.offcanvas-end {
+  bottom: $spacer;
+  border-radius: $border-radius;
+  top: 90px;
+  right: $spacer;
+}
+
 // Side Navbar
 .sidenav {
   width: 100%;
@@ -50,7 +57,7 @@
   }
 
   input,button {
-    border-radius: 5px;
+    border-radius: $border-radius;
     border: none;
   }
 }
@@ -75,8 +82,12 @@
     color: rgba($color: $mm-gray, $alpha: .7);
   }
   &:hover .overlay {
-    background-color: #ffffff;
+    background-color: #8d8c8c;
     transform: scaleX(1);
+    
+  }
+  &:hover .side-line {
+    display: block;
   }
   img {
     margin-right: 20px;
@@ -85,7 +96,7 @@
 
 .trails-content {
   text-decoration: none;
-  color: #fff;
+  color: rgb(151, 150, 150);
   font-size: 24px;
   z-index: 1;  
 }
@@ -96,10 +107,12 @@
   height: 76px;
   top: 0;
   left: -40px;
-  background-color: $mm-lightgray;
+  // background-color: $mm-lightgray;
   transform-origin: left;
-  border-bottom: 1px solid $mm-orange;
+  // border-bottom: 1px solid $mm-orange;
   position: absolute;
   z-index: 0;
   transition: background-color .4s;
 }
+
+
