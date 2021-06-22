@@ -7,49 +7,34 @@ class TrailMap {
     if (!mapElement) return;
     mapboxgl.accessToken = mapElement.dataset.mapboxAccessToken;
 
-
     this.map = new mapboxgl.Map({
       container: 'map',
       zoom: 13.5,
-      center: [-122.961, 50.058],
+      //center: [-122.961, 50.058],
+      center: [-122.964, 50.087],
       pitch: 75,
       bearing: 180,
       style: 'mapbox://styles/andycalder/ckq4pb5w13f0d17o83a6vghq3'
     });
-
-    // this.map.on('load', function () {
-    //   const loader = document.getElementById('preloader');
-    //   if (loader) {
-    //     loader.classList.remove('active');
-    //   }
-    // })
 
     const nav = new mapboxgl.NavigationControl();
     this.map.addControl(nav, 'bottom-left');
 
     this.photoMarkers = {};
 
-
     this.trailPopup = new mapboxgl.Popup({
       closeButton: false,
       closeOnClick: false
     });
 
-    this.map.on('click', 'trails', (e) => {
-      this.displayPhotoUploadForm(e);
-    });
+    this.map.on('click', 'trails', e => this.displayPhotoUploadForm(e));
+    this.map.on('mouseenter', 'trails', e => this.displayTrailPopup(e));
+    this.map.on('mouseleave', 'trails', e => this.hideTrailPopup());
 
-    this.map.on('mouseenter', 'trails', (e) => {
-      this.displayTrailPopup(e);
-    });
-
-    this.map.on('mouseleave', 'trails', (e) => {
-      this.trailPopup.remove();
-    });
-
-    document.addEventListener('showTrail', (e) => {
-      this.showTrail(e.detail);
-    });
+    document.addEventListener('showTrail', e => this.showTrail(e.detail));
+    document.addEventListener('resetCamera', () => this.resetCamera());
+    document.addEventListener('showSidebar', e => this.showSidebar());
+    document.addEventListener('hideSidebar', e => this.hideSidebar());
 
     this.map.on('load', () => {
       const loader = document.getElementById('preloader');
@@ -61,12 +46,35 @@ class TrailMap {
     });
   }
 
+  showSidebar() {
+    const width = document.getElementById('offcanvasExample').clientWidth;
+
+    this.map.easeTo({
+      padding: { top: 0, bottom: 0, left: 0, right: width }
+    });
+  }
+
+  hideSidebar() {
+    this.map.easeTo({
+      padding: { top: 0, bottom: 0, left: 0, right: 0 }
+    });
+  }
+
   displayTrailPopup(e) {
     const name = e.features[0].properties.name;
+
+    this.map.getCanvas().style.cursor = 'pointer';
+    this.map.setFilter('hover', ['==', ['get', 'name'], name]);
 
     this.trailPopup.setLngLat(e.lngLat)
       .setHTML(`<p>${name}</p>`)
       .addTo(this.map);
+  }
+
+  hideTrailPopup() {
+    this.map.getCanvas().style.cursor = '';
+    this.map.setFilter('hover', ['==', ['get', 'name'], '']);
+    this.trailPopup.remove();
   }
 
   animate() {
@@ -76,9 +84,7 @@ class TrailMap {
   fetchPhotoData() {
     fetch('/photos', { headers: { accept: "application/json" } })
       .then(response => response.json())
-      .then(data => {
-        this.addPhotoMarkers(data);
-      });
+      .then(data => this.addPhotoMarkers(data));
   }
 
   addPhotoMarkers(photos) {
@@ -103,15 +109,33 @@ class TrailMap {
   }
 
   showTrail(trail) {
+    this.map.setPaintProperty('trails', 'line-color', 'grey');
+    this.map.setFilter('hover', ['==', ['get', 'name'], trail.name]);
+    this.map.setFilter('hover case', ['==', ['get', 'name'], trail.name]);
+
     const start = [trail.start_lng, trail.start_lat];
 
-    new mapboxgl.Popup()
-      .setLngLat(start)
+    this.trailPopup.remove();
+    this.trailPopup.setLngLat(start)
       .setHTML(`<p>${trail.name}</p>`)
       .addTo(this.map);
 
-    this.map.easeTo({
-      center: start
+    this.map.flyTo({
+      center: start,
+      zoom: 14.5
+    });
+  }
+
+  resetCamera() {
+    this.map.setPaintProperty('trails', 'line-color', 'yellow');
+    this.map.setFilter('hover', ['==', ['get', 'name'], '']);
+    this.map.setFilter('hover case', ['==', ['get', 'name'],'']);
+
+    this.trailPopup.remove();
+
+    this.map.flyTo({
+      center: [-122.964, 50.087],
+      zoom: 13.5
     });
   }
 

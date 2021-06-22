@@ -6,9 +6,7 @@ export default class extends Controller {
   }
 
   connect() {
-    // this.element.textContent = "Hello World!"
-    console.log("trail_controller");
-
+    console.log('init trail controller');
   }
 
   showTrail() {
@@ -16,6 +14,4 @@ export default class extends Controller {
     const event = new CustomEvent('showTrail', { detail: trail });
     document.dispatchEvent(event);
   }
-
-
 }
