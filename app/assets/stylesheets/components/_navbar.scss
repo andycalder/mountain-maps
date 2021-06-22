@@ -14,9 +14,10 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  background-color: $mm-gray;
+  // background-color: $mm-gray;
+  background-color:transparent !important;
   padding: 10px 17px 10px 10px;
-  height: 90px;
+  // height: 90px;
 }
 
 .right-navbar {
@@ -25,18 +26,18 @@
 }
 
 .logo {
-  width: 120px;
+  width: 110px;
 }
 
 .right-navbar .btn-sign-up, .right-navbar .btn-sign-in, .right-navbar .btn-sign-out {
-  margin-left: 20px;
+  margin-right: 1em;
 }
 
 .avatar-large {
   border: 1px solid #ffffff;
 }
 
-.btn-sign-up {
+.btn-sign-up, .btn-offcanvas {
   border: 1px solid #ffffff;
   border-radius: 5px;
   color: #ffffff;
@@ -49,6 +50,7 @@
   border-radius: 5px;
   background-color: $primary;
   padding: 10px 25px 10px 25px;
+
 }
 
 .btn-sign-up:hover, .btn-sign-in:hover, .btn-sign-out:hover {

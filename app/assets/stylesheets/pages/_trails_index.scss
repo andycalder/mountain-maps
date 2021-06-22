@@ -24,15 +24,6 @@
 
 // Button Offcanvas
 
-.btn-offcanvas {
-  background-color: $mm-gray !important;
-  border:none !important;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1;
-}
-
 .icon-close {
   color:#ffffff !important;
   font-size: 30px;
@@ -43,8 +34,9 @@
 }
 
 .fa-bars {
-  font-size: 30px;
+  font-size: 20px;
   color: #ffffff;
+  padding-top: 2px;
 }
 
 // Search bar && Filter button
@@ -72,7 +64,6 @@
 .trails-path {
   position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 76px;
   width: 100%;
@@ -87,14 +78,16 @@
     background-color: #ffffff;
     transform: scaleX(1);
   }
+  img {
+    margin-right: 20px;
+  }
 }
 
 .trails-content {
   text-decoration: none;
   color: #fff;
   font-size: 24px;
-  z-index: 1;
-  
+  z-index: 1;  
 }
 
 // Grey overlay

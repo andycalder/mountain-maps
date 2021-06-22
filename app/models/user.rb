@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   validates :nickname, presence: true
+
+  def avatar_path
+    photo.attached? ? ActionController::Base.helpers.cl_image_path(photo.key, width: 400, height: 400, crop: 'fill') : ActionController::Base.helpers.image_path('empty_avatar')
+  end
 end
