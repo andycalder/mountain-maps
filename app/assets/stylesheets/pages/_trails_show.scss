@@ -56,6 +56,8 @@
 .reviews-display {
   background-color: $mm-lightgray;
   padding: 1em;
+  overflow: scroll;
+  height: 29em;
 }
 
 .reviews-card {
