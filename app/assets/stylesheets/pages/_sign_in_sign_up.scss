@@ -15,7 +15,7 @@
   align-content: flex-start;
 }
 
-.container-general .sign-up-photo {
+.container-general .sign-up-photo, .container-general .sign-in-photo {
   height: 75%;
   width: 320px;
   object-fit: cover;
@@ -27,6 +27,10 @@
   border-radius: 5px;
   background-color: $mm-gray;
   text-align:center !important;
+}
+
+.form-sign-in {
+  border: none;
 }
 
 .form-inputs {
@@ -51,17 +55,17 @@
   padding: 10px 20px 10px 20px;
 }
 
-.sign-up-color:hover {
+.sign-up-color:hover, .log-in:hover {
   font-weight: bold;
   color:#ffffff !important;
 }
 
 .log-in {
-  width: 23%;
   background-color: $mm-orange;
   border-radius: 5px;
   text-align:center !important;
-  padding: 11px 20px 11px 20px;
+  padding: 11px 28px 11px 28px;
+  color: $mm-white !important;
 }
 
 .log-in a {
@@ -73,8 +77,7 @@
   font-weight: bold;
 }
 
-// Sign up
-.sign-up {
+.sign-up, .sign-in {
   color: $mm-orange;
   font-family: $body-font !important;
   padding-bottom: 10px;
@@ -83,7 +86,7 @@
   letter-spacing: 1px;
 }
 
-.inline {
+.inline, .inline-2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,5 +96,13 @@
   margin: 0 20px 0 20px;
   color: $mm-white;
   font-weight: bold;
+}
+
+.inline-2 a {
+  padding: 20px;
+}
+
+.form-check-input {
+  margin-top: 10px;
 }
 

@@ -1,4 +1,6 @@
-<h2>Log in</h2>
+<div class="container-general">
+  <div class="container-form">
+<h2 class="sign-in">Sign In</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -12,9 +14,15 @@
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+
+  <div class="form-actions form-sign-in">
+    <%= f.button :submit, "Sign in", class:"log-in btn-primary" %>
   </div>
 <% end %>
-
+<div class="inline-2">
 <%= render "devise/shared/links" %>
+</div>
+</div>
+
+<%= image_tag "sign-in.webp", class: "sign-in-photo" %>
+</div>
