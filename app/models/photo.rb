@@ -12,11 +12,11 @@ class Photo < ApplicationRecord
   def photo_published_time
     ammount_of_day = (Date.today - self.created_at.to_date).to_i
     if ammount_of_day < 1
-      "today"
+      "Uploaded today"
     elsif ammount_of_day == 1
-      "#{ammount_of_day} day ago"
+      "Uploaded #{ammount_of_day} day ago"
     else
-      "#{ammount_of_day} days ago"
+      "Uploaded #{ammount_of_day} days ago"
     end 
   end
 end
