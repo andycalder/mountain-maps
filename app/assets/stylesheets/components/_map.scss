@@ -4,3 +4,13 @@
   height: 100vh;
   transition: opacity 0.5s;
 }
+
+.mapboxgl-popup-content {
+  background-color: $mm-gray;
+  box-shadow: none;
+  border-radius: $border-radius;
+}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip{
+  border-top-color: $mm-gray;
+}

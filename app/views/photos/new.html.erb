@@ -1,12 +1,17 @@
 <%= turbo_frame_tag("photo-popup") do %>
-  <%= simple_form_for(@photo) do |f| %>
-    <%= f.hidden_field :latitude, required: true %>
-    <%= f.hidden_field :longitude, required: true %>
-    <%= f.hidden_field :trail_id, value: @trail_id, required: true %>
-    <div class='photo-preview' data-controller="photo-preview">
-      <%= image_tag 'add_photo.webp', class: "photo-preview__preview", :data => { 'photo-preview-target': "photoPreview" } %>
-      <%= f.input :image, as: :file, label: false, input_html: { class: "photo-preview__input", :data => {'photo-preview-target': "photoInput", action: "change->photo-preview#showPhotoPreview"} } %>
-    </div>
-    <%= f.button :submit, "Upload", class: "btn btn-primary" %>
-  <% end %>
+  <div id="upload-photo">
+    <%= simple_form_for(@photo) do |f| %>
+      <%= f.hidden_field :latitude, required: true %>
+      <%= f.hidden_field :longitude, required: true %>
+      <%= f.hidden_field :trail_id, value: @trail_id, required: true %>
+      <div class='photo-preview' data-controller="photo-preview">
+        <%= image_tag 'add_photo.webp', class: "photo-preview__preview", :data => { 'photo-preview-target': "photoPreview" } %>
+        <%= f.input :image, as: :file, label: false, input_html: { class: "photo-preview__input", :data => {'photo-preview-target': "photoInput", action: "change->photo-preview#showPhotoPreview"} } %>
+      </div>
+      <%# add stimulus controller to the upload button %>
+      <%= button_tag type: 'submit', class: "upload-btn", data: {controller: "disable-onclick", action: "click->disable-onclick#disable"} do %>
+          <i class="fas fa-cloud-upload-alt"></i> Upload
+      <% end %>
+    <% end %>
+  </div>
 <% end %>
