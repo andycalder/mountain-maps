@@ -14,3 +14,11 @@
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip{
   border-top-color: $mm-gray;
 }
+
+.photo-marker {
+  width: 35px;
+  height: 44px;
+  background-image: asset-url('marker.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
