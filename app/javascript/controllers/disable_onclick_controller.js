@@ -1,19 +1,11 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static values = {
-    disabledText: String
-  }
-
   connect() {
+    console.log('upload button controller connected');
   }
 
-  disable(e) {
-    // prevent the click event
-    // e.preventDefault();
-    this.element.disabled = true; // disable the button after the user click
-    if (this.disabledTextValue) {
-      this.element.innerHTML = `<div class="loading"><div class="loader"></div></div>`
-    }
+  disable() {
+    this.element.innerHTML = `<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>`
   }
 }
