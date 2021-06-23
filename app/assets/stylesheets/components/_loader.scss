@@ -1,12 +1,17 @@
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .lds-ellipsis {
   display: inline-block;
   position: relative;
   width: 80px;
-  height: 80px;
+  height: 20.5px;
 }
 .lds-ellipsis div {
   position: absolute;
-  top: 33px;
   width: 13px;
   height: 13px;
   border-radius: 50%;
