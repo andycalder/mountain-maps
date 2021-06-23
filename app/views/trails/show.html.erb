@@ -4,7 +4,6 @@
     <div class="layout show-title">
       <a href="" data-controller="sidebar" data-action="click->sidebar#resetCamera">
         <i class="fas fa-arrow-left"></i>
-        Back
       </a>
     </div>
 
@@ -75,14 +74,14 @@
         <!-- Start if user is signed up -->
           <%= simple_form_for [@trail, @review] do |f| %>
             <%= f.input :comment, label: 'Add a review'%>
-            <%= f.submit "ADD", class: "btn btn-warning submit-button" %>
+            <%= f.submit "Add", class: "btn btn-primary submit-button" %>
           <% end %>
         <!-- End if user is signed up -->
         <% else %>
         <!-- Start if user is not signed up -->
           <div>
             <p>Sign up to leave a review</p>
-            <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-warning submit-button" %>
+            <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-primary submit-button" %>
           </div>
         <!-- End if user is not signed up -->
         <% end %>
