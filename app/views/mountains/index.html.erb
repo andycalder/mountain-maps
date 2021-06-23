@@ -2,26 +2,36 @@
   <div id="chamonix-photo" class="mountain">
     <div class="darken"></div>
     <div class="location">
-      <h1>Chamonix</h1>
-       <h2>France</h2>
+      <div class="same-line">
+        <h1>Chamonix</h1>
+        <%= link_to mountains_path do %>
+        <%= image_tag "arrow.png", class: "arrow" %>
+        <% end %>
+      </div>
+      <h2>France</h2>
     </div>
   </div>
   <div id="whistler-photo" class="mountain">
     <div class="darken"></div>
     <div class="location">
       <div class="same-line">
-      <h1><%= Mountain.first.name.capitalize %></h1>
-      <%= link_to mountain_trails_path(Mountain.first) do %>
-      <%= image_tag "arrow.png", class: "arrow" %>
-      <% end %>
+        <h1><%= Mountain.first.name.capitalize %></h1>
+        <%= link_to mountain_trails_path(Mountain.first) do %>
+        <%= image_tag "arrow.png", class: "arrow" %>
+        <% end %>
       </div>
-       <h2>Canada</h2>
-     </div>
+      <h2>Canada</h2>
+    </div>
   </div>
   <div id="cardrona-photo" class="mountain">
     <div class="darken"></div>
     <div class="location">
-      <h1>Cardrona</h1>
+      <div class="same-line">
+        <h1>Cardrona</h1>
+        <%= link_to mountains_path do %>
+        <%= image_tag "arrow.png", class: "arrow" %>
+        <% end %>
+      </div>
       <h2>New Zealand</h2>
     </div>
   </div>
