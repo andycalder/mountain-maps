@@ -60,9 +60,11 @@
 // Sign up
 .sign-up {
   color: $mm-orange;
-  // font-family: $body-font !important;
+  font-family: $body-font !important;
   padding-bottom: 15px;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .inline {
