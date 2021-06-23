@@ -6,6 +6,10 @@
   form label {
     display: none;
   }
+
+  .submit-button {
+    margin: 0px;
+  }
 }
 #photo_image {
   background: #ececec;
@@ -14,17 +18,3 @@
   border-radius: 5px;
   margin-bottom: 10px;
 }
-
-.upload-btn {
-  color: #ffffff;
-  border-radius: 5px;
-  background-color: $primary;
-  padding: 10px 25px 10px 25px;
-  width: 100%;
-  font-size: 20px;
-  i {
-    margin-right: 8px;
-  }
-}
-
-

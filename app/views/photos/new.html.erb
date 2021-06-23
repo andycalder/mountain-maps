@@ -9,7 +9,7 @@
         <%= f.input :image, as: :file, label: false, input_html: { class: "photo-preview__input", :data => {'photo-preview-target': "photoInput", action: "change->photo-preview#showPhotoPreview"} } %>
       </div>
       <%# add stimulus controller to the upload button %>
-      <%= button_tag type: 'submit', class: "upload-btn", data: {controller: "disable-onclick", action: "click->disable-onclick#disable"} do %>
+      <%= button_tag type: 'submit', class: "btn btn-primary submit-button", data: {controller: "disable-onclick", action: "click->disable-onclick#disable"} do %>
           <i class="fas fa-cloud-upload-alt"></i> Upload
       <% end %>
     <% end %>
