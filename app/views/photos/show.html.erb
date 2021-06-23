@@ -2,10 +2,10 @@
   <div class="popup">
     <div class="profile">
       <div id="popup-avatar" style="background-image: url('<%= @photo.user.avatar_path %>');"></div>
-      <h2 class="me-2"><%= @photo.user.nickname %></h2>
     </div>
     <%= cl_image_tag(@photo.image.key, width: 300, height: 200, crop:"fill") %>
     <div class="content">
+      <h2 class="me-2"><%= @photo.user.nickname %></h2>
       <p class="text-end w-100"><%= @photo.photo_published_time %><p>
     </div>
   </div>
