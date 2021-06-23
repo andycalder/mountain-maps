@@ -6,8 +6,9 @@
 }
 
 .mapboxgl-popup-content {
-  // padding: 0px;
   background-color: $mm-gray;
+  box-shadow: none;
+  border-radius: $border-radius;
 }
 
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip{
