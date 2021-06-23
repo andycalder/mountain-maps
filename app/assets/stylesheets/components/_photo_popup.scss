@@ -1,5 +1,4 @@
 @import 'avatar';
-
 .popup {
   position: relative;
   width: 100%;
@@ -22,15 +21,17 @@
 #popup-avatar {
   @extend .avatar;
   background-size: cover;
-  width: 60px;
-  height: 60px;
+  bottom: 48px;
+  left: 8px;
+  height: 40px;
   object-fit: cover;
   border: 2px solid white;
 }
 
 .content {
+  display: flex;
+  justify-content: space-between;
   margin-top: 20px;
-  
 
   p {
     font-size: 15px;
