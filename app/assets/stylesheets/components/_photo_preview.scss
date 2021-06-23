@@ -1,13 +1,11 @@
 .photo-preview {
-  background-color: #eee;
+  background-color: $mm-lightgray;
   height: 300px;
   width: 400px;
-  border: 1px solid #ccc;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: $spacer;
 
   &__preview {
     width: 25%;

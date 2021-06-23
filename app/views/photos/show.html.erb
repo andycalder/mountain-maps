@@ -1,10 +1,12 @@
 <%= turbo_frame_tag("photo-popup") do %>
   <div class="popup">
-    <div id="popup-avatar" style="background-image: url('<%= @photo.user.avatar_path %>');"></div>
+    <div class="profile">
+      <div id="popup-avatar" style="background-image: url('<%= @photo.user.avatar_path %>');"></div>
+      <h2 class="me-2"><%= @photo.user.nickname %></h2>
+    </div>
     <%= cl_image_tag(@photo.image.key, width: 300, height: 200, crop:"fill") %>
     <div class="content">
-      <p class="me-2"><%= @photo.user.nickname %></p>
-      <p class="text-secondary text-end"> Posted <%= (Date.today - @photo.created_at.to_date).to_i %> days ago<p>
+      <p class="text-end w-100"><%= @photo.photo_published_time %><p>
     </div>
   </div>
 <% end %>
