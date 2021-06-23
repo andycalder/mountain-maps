@@ -15,7 +15,7 @@
         <%= link_to "Sign Out", destroy_user_session_path, class: 'btn btn-primary text-light', method: :delete %>
       <% else %>
         <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-sign-up" %>
-        <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary btn-sign-in" %>
+        <%= link_to "Sign In", new_user_session_path, class: "btn btn-sign-in" %>
       <% end %>
       <% if current_page?(mountain_trails_path(Mountain.first)) %>
         <button class="btn btn-primary btn-offcanvas" type="button" data-controller="sidebar" data-action="click->sidebar#toggleSidebar" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasScrolling"><i class="fas fa-bars"></i></button>
