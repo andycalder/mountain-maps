@@ -1,21 +1,17 @@
 import mapboxgl from 'mapbox-gl';
 //import 'mapbox-gl/dist/mapbox-gl.css';
-const iconColor = "rgb(169,169,169)";
-const trailIcon = `<svg width="20px" height="22px" viewBox="0 0 20 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g id="Page-1" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Navigation,-Maps/point-direction-arrow" transform="translate(-2.000000, -1.000000)">
-            <g id="Group" transform="translate(-0.005000, -0.005000)">
-                <g stroke-linecap="round" stroke-linejoin="round" transform="translate(3.001250, 2.000833)" id="Path" stroke="${iconColor}" stroke-width="1.5">
-                    <path d="M4.19774833,8.70662625 C3.80858625,9.10279125 3.17132083,9.10279125 2.78215875,8.70662625 C1.76273417,7.66819375 0,5.59232917 0,3.64851958 C0,1.63368042 1.56265083,0 3.49045375,0 C5.41825667,0 6.9809075,1.63368042 6.9809075,3.64851958 C6.9809075,5.59232917 5.21817333,7.66819375 4.19774833,8.70662625 Z"></path>
-                    <path d="M3.48945665,3.34039125 C3.35139583,3.34039125 3.24034958,3.45243792 3.24034958,3.59049542 C3.24034958,3.7275525 3.35239625,3.83959917 3.48945665,3.83959917 C3.62751083,3.83959917 3.73855708,3.7275525 3.73855708,3.59049542 C3.7395575,3.45243792 3.62751083,3.34039125 3.48945665,3.34039125"></path>
-                    <path d="M17.16715,15.5594804 L14.2769462,17.2691925 C13.9157958,17.4832817 13.9157958,18.0064996 14.2769462,18.2195883 L17.16715,19.9293004 C17.5383046,20.1493921 18.0075,19.8812804 18.0075,19.4501008 L18.0075,16.03868 C18.0075,15.6075004 17.5383046,15.3393888 17.16715,15.5594804 Z"></path>
-                    <path d="M10.0041667,17.7053742 L5.00208333,17.7053742 C3.89662292,17.7053742 3.00125,16.8100013 3.00125,15.7045408 L3.00125,15.7045408 C3.00125,14.5990804 3.89662292,13.7037075 5.00208333,13.7037075 L10.6554379,13.7037075 C11.9529783,13.7037075 13.0054167,12.6512692 13.0054167,11.3537288 L13.0054167,11.3537288 C13.0054167,10.0561883 11.9529783,9.00375 10.6554379,9.00375 L8.00333333,9.00375"></path>
-                </g>
-                <polygon id="Path" points="0 0 24.01 0 24.01 24.01 0 24.01"></polygon>
-            </g>
-        </g>
-    </g>
-</svg>`;
+const images = {
+  "beginner": "/assets/svg-difficulty-icons/beginner-747d3fcebed4abe8fe00fe6f8bc96730002eb1fdc342151ff1af25266898ec98.svg",
+  "intermediate": "/assets/svg-difficulty-icons/intermediate-3120a323407f2c9e9c93424146aa4d48324134788391cd5b27a7b186da212cc7.svg",
+  "advanced": "/assets/svg-difficulty-icons/advanced-ca04bed652a6dcb762ebde5db7e42269b28e501786ee4fb266266360e184bc33.svg",
+  "expert": "/assets/svg-difficulty-icons/expert-f326f2ebfa99007acc95ee1a73e5ce306e3f5f6c15d7875e01a65f27e4412e15.svg",
+  "proline": "/assets/svg-difficulty-icons/proline-09d48a1c0890f0c269f498279c6e1c19ab75371d02cecd03444e83f84e26fdc3.svg",
+  "green": "/assets/svg-difficulty-icons/beginner-747d3fcebed4abe8fe00fe6f8bc96730002eb1fdc342151ff1af25266898ec98.svg",
+  "blue": "/assets/svg-difficulty-icons/intermediate-3120a323407f2c9e9c93424146aa4d48324134788391cd5b27a7b186da212cc7.svg",
+  "black": "/assets/svg-difficulty-icons/advanced-ca04bed652a6dcb762ebde5db7e42269b28e501786ee4fb266266360e184bc33.svg",
+  "doubleblack": "/assets/svg-difficulty-icons/expert-f326f2ebfa99007acc95ee1a73e5ce306e3f5f6c15d7875e01a65f27e4412e15.svg",
+  "red": "/assets/svg-difficulty-icons/proline-09d48a1c0890f0c269f498279c6e1c19ab75371d02cecd03444e83f84e26fdc3.svg",
+};
 
 class TrailMap {
   constructor() {
@@ -78,6 +74,7 @@ class TrailMap {
 
   displayTrailPopup(e) {
     const name = e.features[0].properties.name;
+    const difficulty = e.features[0].properties.difficulty;
 
     this.map.getCanvas().style.cursor = 'pointer';
     this.map.setFilter('hover', ['==', ['get', 'name'], name]);
@@ -85,7 +82,7 @@ class TrailMap {
     this.trailPopup.setLngLat(e.lngLat)
       .setHTML(`
         <div class="trail-popup">
-          ${trailIcon}
+          <img src="${images[difficulty]}">
           <p>${name}</p>
         <div>
         `)
@@ -140,7 +137,7 @@ class TrailMap {
     this.trailPopup.setLngLat(start)
       .setHTML(`
         <div class="trail-popup">
-          ${trailIcon}
+          <img src="${images[trail.difficulty]}">
           <p>${trail.name}</p>
         <div>
         `)

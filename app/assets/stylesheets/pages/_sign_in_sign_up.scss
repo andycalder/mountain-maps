@@ -1,0 +1,97 @@
+// General
+.container-general {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius;
+  color: $mm-gray-font;
+  height: 100vh;
+}
+
+.container-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+.container-general .sign-up-photo {
+  height: 75%;
+  width: 320px;
+  object-fit: cover;
+  border-radius: $border-radius;
+}
+
+.form-actions {
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  background-color: $mm-gray;
+  text-align:center !important;
+}
+
+.form-inputs {
+  padding: 20px 40px 30px 40px;
+}
+
+.form-inputs label {
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
+
+.form-inputs .user_photo {
+  padding-top: 5px;
+}
+
+.form-inputs .optional {
+  padding-right: 10px;
+}
+
+.sign-up-color {
+  color: #ffffff;
+  padding: 10px 20px 10px 20px;
+}
+
+.sign-up-color:hover {
+  font-weight: bold;
+  color:#ffffff !important;
+}
+
+.log-in {
+  width: 23%;
+  background-color: $mm-orange;
+  border-radius: 5px;
+  text-align:center !important;
+  padding: 11px 20px 11px 20px;
+}
+
+.log-in a {
+  color:#ffffff !important;
+  text-decoration: none;
+}
+
+.log-in a:hover {
+  font-weight: bold;
+}
+
+// Sign up
+.sign-up {
+  color: $mm-orange;
+  font-family: $body-font !important;
+  padding-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.inline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inline p {
+  margin: 0 20px 0 20px;
+  color: $mm-white;
+  font-weight: bold;
+}
+
