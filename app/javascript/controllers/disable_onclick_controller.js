@@ -6,13 +6,12 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("hello there, i will disable onclick")
   }
 
   disable(e) {
-    // e.preventDefault()
-    console.log("clicked!")
-    this.element.disabled = true;
+    // prevent the click event
+    // e.preventDefault();
+    this.element.disabled = true; // disable the button after the user click
     if (this.disabledTextValue) {
       this.element.innerHTML = `<div class="loading"><div class="loader"></div></div>`
     }
