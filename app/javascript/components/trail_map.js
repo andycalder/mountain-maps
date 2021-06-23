@@ -112,13 +112,21 @@ class TrailMap {
         const url = `/photos/${photo.id}`;
         const frame = `<turbo-frame id="photo-popup" src="${url}"></turbo-frame>`;
 
+        const popupOptions = {
+          closeButton: false,
+          offset: 47
+        };
+
         // Photo popup
-        const popup = new mapboxgl.Popup({ offset: 25 })
+        const popup = new mapboxgl.Popup(popupOptions)
           .setMaxWidth('500px')
           .setHTML(frame);
 
+        const marker = document.createElement('div');
+        marker.classList.add('photo-marker');
+
         // Photo marker
-        this.photoMarkers[photo.id] = new mapboxgl.Marker()
+        this.photoMarkers[photo.id] = new mapboxgl.Marker({element: marker, offset: [0, -22]})
           .setLngLat([photo.longitude, photo.latitude])
           .setPopup(popup)
           .addTo(this.map);
@@ -168,7 +176,7 @@ class TrailMap {
     const url = encodeURI(`/photos/new?lng=${lng}&lat=${lat}&name=${name}`);
     const frame = `<turbo-frame id="photo-popup" src="${url}"></turbo-frame>`;
 
-    const popup = new mapboxgl.Popup()
+    const popup = new mapboxgl.Popup({ closeButton: false })
       .setMaxWidth('500px')
       .setLngLat(e.lngLat)
       .setHTML(frame)
