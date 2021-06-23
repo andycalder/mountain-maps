@@ -9,8 +9,7 @@ class Photo < ApplicationRecord
   validates :longitude, presence: true
 
   # display the published time in day
-  def published_time
-    
+  def photo_published_time
     ammount_of_day = (Date.today - self.created_at.to_date).to_i
     if ammount_of_day < 1
       "today"

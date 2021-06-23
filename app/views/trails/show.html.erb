@@ -59,7 +59,7 @@
             <img src="<%= review.user.avatar_path %>" alt="" class="avatar">
             <div class="reviews-head">
               <h2><%= review.user.nickname %></h2>
-              <p> Posted <%= (Date.today - review.created_at.to_date).to_i %> days ago<p>
+              <p> Posted <%= review.review_published_time %><p>
             </div>
           </div>
           <div class="card-contents">

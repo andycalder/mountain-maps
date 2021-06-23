@@ -14,13 +14,13 @@
   bottom: 15px;
   left: 6px;
   h2 {
-    font-size: 24px;
+    font-size: 21px;
     color: $mm-gray-font;
   }
 }
 
 #popup-avatar {
-  @extend .avatar; 
+  @extend .avatar;
   background-size: cover;
   width: 60px;
   height: 60px;
@@ -33,8 +33,7 @@
   
 
   p {
-    font-size: 14px;
-    font-style: italic;
+    font-size: 15px;
     color: $mm-light-font;
   }
 }
