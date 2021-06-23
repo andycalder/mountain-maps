@@ -55,12 +55,6 @@
   padding: 10px 20px 10px 20px;
 }
 
-.sign-up-black a {
-  border: 1px solid #ffffff;
-  color: $mm-white;
-  padding: 10px 20px 10px 20px;
-}
-
 .sign-up-color:hover, .log-in:hover {
   font-weight: bold;
   color:#ffffff !important;
@@ -106,5 +100,9 @@
 
 .inline-2 a {
   padding: 20px;
+}
+
+.form-check-input {
+  margin-top: 10px;
 }
 
