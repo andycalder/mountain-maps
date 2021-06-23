@@ -8,14 +8,22 @@
   
 }
 
+.profile {
+  position: absolute;
+  bottom: 15px;
+  left: 6px;
+  h2 {
+    font-size: 21px;
+    color: $mm-gray-font;
+  }
+}
+
 #popup-avatar {
   @extend .avatar;
-  position: absolute;
   background-size: cover;
   bottom: 48px;
   left: 8px;
   height: 40px;
-  -o-object-fit: cover;
   object-fit: cover;
   border: 2px solid white;
 }
@@ -24,6 +32,10 @@
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-  font-size: 14px;
+
+  p {
+    font-size: 15px;
+    color: $mm-light-font;
+  }
 }
 
