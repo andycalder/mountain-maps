@@ -85,6 +85,14 @@
   }
 }
 
+#trail-difficulty-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .btn-outline-primary {
   border: 1px solid $mm-gray-font;
 }
@@ -98,6 +106,8 @@
   background-color: $mm-gray-font;
   border: 1px solid $mm-gray-font;
 }
+
+
 
 // Trails Section
 .trails {

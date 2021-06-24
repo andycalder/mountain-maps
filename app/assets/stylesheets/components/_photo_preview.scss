@@ -1,15 +1,14 @@
 .photo-preview {
   background-color: $mm-lightgray;
-  height: 300px;
-  width: 400px;
+  width: 200px;
+  height: 130px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &__preview {
-    width: 25%;
-    height: auto;
+    width: 50%;
   }
 
   &__input {
