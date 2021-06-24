@@ -1,6 +1,6 @@
 <%= turbo_frame_tag("photo-popup") do %>
   <div class="popup">
-    <%= cl_image_tag(@photo.image.key, width: 500, crop:"fill", class: "popup-image") %>
+    <%= cl_image_tag(@photo.image.key, width: 250, crop:"fill", class: "popup-image") %>
     <div class="profile">
       <div id="popup-avatar" style="background-image: url('<%= @photo.user.avatar_path %>');"></div>
     </div>
