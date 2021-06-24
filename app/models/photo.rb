@@ -17,6 +17,6 @@ class Photo < ApplicationRecord
       "Uploaded #{ammount_of_day} day ago"
     else
       "Uploaded #{ammount_of_day} days ago"
-    end 
+    end
   end
 end
