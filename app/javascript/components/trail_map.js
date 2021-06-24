@@ -29,7 +29,7 @@ class TrailMap {
       style: 'mapbox://styles/andycalder/ckq4pb5w13f0d17o83a6vghq3'
     });
 
-    const nav = new mapboxgl.NavigationControl();
+    const nav = new mapboxgl.NavigationControl({ showCompass: false });
     this.map.addControl(nav, 'bottom-left');
 
     this.photoMarkers = {};
