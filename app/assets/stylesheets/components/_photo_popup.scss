@@ -1,41 +1,55 @@
 @import 'avatar';
 .popup {
   position: relative;
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  object-fit: cover;
-  
-}
+  width: 400px;
+  padding: 0px;
 
-.profile {
-  position: absolute;
-  bottom: 15px;
-  left: 6px;
-  h2 {
-    font-size: 21px;
-    color: $mm-gray-font;
+  .popup-image {
+    width: 100%;
+    border-radius: 2px;
+  }
+
+  .profile {
+    position: relative;
+    margin-top: -30px;
+    padding-left: 10px;
+
+    h2 {
+      font-size: 21px;
+      color: $mm-gray-font;
+    }
+  }
+
+  #popup-avatar {
+    @extend .avatar;
+    background-size: cover;
+    bottom: 48px;
+    left: 8px;
+    height: 56px;
+    width: 56px;
+    object-fit: cover;
+    border: 2px solid white;
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+    padding-left: 10px;
+
+    h2 {
+      margin: 0px;
+      font-size: 1.5em;
+      color: $mm-light-font;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: $mm-gray-font;
+      margin: 0px;
+    }
   }
 }
 
-#popup-avatar {
-  @extend .avatar;
-  background-size: cover;
-  bottom: 48px;
-  left: 8px;
-  height: 40px;
-  object-fit: cover;
-  border: 2px solid white;
-}
 
-.content {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-
-  p {
-    font-size: 15px;
-    color: $mm-light-font;
-  }
-}
 
