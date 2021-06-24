@@ -6,15 +6,38 @@
   <style>
 
   html {
-    background-image: url('images/wild-nature-bike.jpg') no-repeat center fixed;
+    background: url('images/wild-nature-bike.jpg') no-repeat center fixed;
     background-size: cover;
   }
 
   .rails-default-error-page {
-    color: #2E2F30;
+    /*color: #2E2F30;*/
     text-align: center;
     font-family: arial, sans-serif;
-    margin: 0;
+    margin: 50px 85px 0 0;
+   float:  right;
+    width: 40%;
+  }
+
+  .rails-default-error-page .dialog-2 h1 {
+    font-size: 50px;
+  }
+
+   .rails-default-error-page .dialog-2 h2 {
+    font-size: 40px;
+  }
+
+   .rails-default-error-page .dialog-2 a {
+    font-size: 20px;
+    background-color: #ffffff;
+    border-radius: 50px;
+    padding: 12px 20px 12px 20px;
+    text-decoration: none;
+    color: #BD6387;
+  }
+
+  .rails-default-error-page .dialog-2 a:hover {
+    font-weight: bold;
   }
 
   .rails-default-error-page div.dialog {
@@ -56,6 +79,7 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
   </style>
 </head>
 
@@ -64,7 +88,7 @@
   <div class="dialog-2">
     <h1>500</h1>
     <h2>We're sorry, but something went wrong.</h2>
-    <a href="http://www.mountain-maps.com/">Ride back home</a>
+    <a href="http://www.mountain-maps.com/" class="link-500">Ride back home</a>
   </div>
 <!--   <div class="dialog">
     <div>
