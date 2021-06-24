@@ -1,0 +1,5 @@
+meta_product_name: "Mountain Maps"
+meta_title: "Mountain Maps - Maximise your day on the slopes with crowdsourced trail info"
+meta_description: "Interactive beautiful 3D mountain bike trail maps"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
