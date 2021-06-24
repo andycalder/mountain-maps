@@ -3,13 +3,13 @@ import mapboxgl from 'mapbox-gl';
 const images = {
   "beginner": "/assets/svg-difficulty-icons/beginner-747d3fcebed4abe8fe00fe6f8bc96730002eb1fdc342151ff1af25266898ec98.svg",
   "intermediate": "/assets/svg-difficulty-icons/intermediate-3120a323407f2c9e9c93424146aa4d48324134788391cd5b27a7b186da212cc7.svg",
-  "advanced": "/assets/svg-difficulty-icons/advanced-ca04bed652a6dcb762ebde5db7e42269b28e501786ee4fb266266360e184bc33.svg",
-  "expert": "/assets/svg-difficulty-icons/expert-f326f2ebfa99007acc95ee1a73e5ce306e3f5f6c15d7875e01a65f27e4412e15.svg",
+  "advanced": "/assets/svg-difficulty-icons/advanced-f5994d1e92380ed06a94741ec9ccae4200becf74a7c6082fafa624b6c56b2b07.svg",
+  "expert": "/assets/svg-difficulty-icons/expert-41e6315a9e2b66bc3eb3b13058acc15799d0f88a49875f98a3feb64d4cc629b1.svg",
   "proline": "/assets/svg-difficulty-icons/proline-09d48a1c0890f0c269f498279c6e1c19ab75371d02cecd03444e83f84e26fdc3.svg",
   "green": "/assets/svg-difficulty-icons/beginner-747d3fcebed4abe8fe00fe6f8bc96730002eb1fdc342151ff1af25266898ec98.svg",
   "blue": "/assets/svg-difficulty-icons/intermediate-3120a323407f2c9e9c93424146aa4d48324134788391cd5b27a7b186da212cc7.svg",
-  "black": "/assets/svg-difficulty-icons/advanced-ca04bed652a6dcb762ebde5db7e42269b28e501786ee4fb266266360e184bc33.svg",
-  "doubleblack": "/assets/svg-difficulty-icons/expert-f326f2ebfa99007acc95ee1a73e5ce306e3f5f6c15d7875e01a65f27e4412e15.svg",
+  "black": "/assets/svg-difficulty-icons/advanced-f5994d1e92380ed06a94741ec9ccae4200becf74a7c6082fafa624b6c56b2b07.svg",
+  "doubleblack": "/assets/svg-difficulty-icons/expert-41e6315a9e2b66bc3eb3b13058acc15799d0f88a49875f98a3feb64d4cc629b1.svg",
   "red": "/assets/svg-difficulty-icons/proline-09d48a1c0890f0c269f498279c6e1c19ab75371d02cecd03444e83f84e26fdc3.svg",
 };
 
