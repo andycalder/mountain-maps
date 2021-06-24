@@ -77,7 +77,6 @@ class TrailMap {
     const difficulty = e.features[0].properties.difficulty;
 
     this.map.getCanvas().style.cursor = 'pointer';
-    this.map.setFilter('hover', ['==', ['get', 'name'], name]);
 
     this.trailPopup.setLngLat(e.lngLat)
       .setHTML(`
@@ -91,7 +90,6 @@ class TrailMap {
 
   hideTrailPopup() {
     this.map.getCanvas().style.cursor = '';
-    this.map.setFilter('hover', ['==', ['get', 'name'], '']);
     this.trailPopup.remove();
   }
 
