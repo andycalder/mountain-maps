@@ -3,6 +3,13 @@
   margin: 1em;
 }
 
+.offcanvas-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+}
+
 // Title section
 .show-title {
   a {
@@ -96,7 +103,12 @@
 
 // Add reviews
 .add-reviews {
-  margin-top: 20px;
+  margin-top: 5px;
+}
+
+textarea.form-control {
+  min-height: calc(1.5em + 0.75rem + 2px);
+  margin-top: 5px;
 }
 
 .submit-button {
