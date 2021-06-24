@@ -164,7 +164,9 @@ class TrailMap {
 
     this.map.flyTo({
       center: [-122.964, 50.087],
-      zoom: 13.5
+      zoom: 13.5,
+      bearing: 160,
+      pitch: 75
     });
   }
 
