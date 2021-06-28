@@ -36,10 +36,12 @@
         <% end %>
         <%#---end---%>
         <div class="trails-path" id="trail-shuffle" data-controller="trail" data-action="click->trail#showTrail" data-difficulty="<%= trail.difficulty %>" data-title="<%= trail.name %>" data-trail-json-value="<%= trail.to_json %>">
-          <div class="overlay <%= color %>"></div>
+          <div class="overlay <%= color %>">
+            <p><%= trail.reviews.length %></p>
+            <i class="comment-icon far fa-comment-alt"></i>
+          </div>
           <%# Switch image base on difficulty %>
           <%= image_tag("svg-difficulty-icons/#{trail.difficulty}.svg", height: 20, width: 20, class: "icon") %>
-
           <%= link_to trail.name, trail_path(trail), class: "trails-content"%>
         </div>
       <% end %>
