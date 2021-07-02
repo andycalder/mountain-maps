@@ -6,7 +6,7 @@ Explore mountain bike trails in 3D with [Mountain Maps](https://www.mountain-map
 - Tag photos along the trail for others to see.
 - Leave trail reviews.
 
-Created by @andycalder, @jorgeandarias, @julianoiret and @hongleang for our final project at Le Wagon web development bootcamp in Melbourne.
+Created by [Andrew Calder](https://github.com/andycalder), [Jorge Andres Arias](https://github.com/JorgeAndArias), [Julia Noiret](https://github.com/julianoiret) and [Hongleang Lim](https://github.com/hongleang) for our final project at Le Wagon web development bootcamp in Melbourne.
 
 Our tech stack includes:
 - Rails
