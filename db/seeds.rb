@@ -42,30 +42,19 @@ dataset_url = "https://api.mapbox.com/datasets/v1/andycalder/#{dataset_id}/featu
 dataset = URI.open(dataset_url).read
 trails = JSON.parse(dataset)['features']
 
-def difficulty(color)
-  case color
-  when 'green' then 'beginner'
-  when 'blue' then 'intermediate'
-  when 'black' then 'advanced'
-  when 'doubleblack' then 'expert'
-  when 'red' then 'proline'
-  end
-end
-
 trails.each do |trail|
   props = trail['properties']
   coords = trail['geometry']['coordinates']
 
-  unless props['type'] == 'chairlift' || trail['geometry']['type'] == 'Point'
+  if props['type'] && %w(technical freeride).include?(props['type'])
     record = Trail.new(
       mountain: whistler,
       name: props['name'],
-      difficulty: difficulty(props['difficulty']) || 'beginner',
-      category: props['type'] ? 'freeride' : 'technical',
+      difficulty: props['difficulty'],
+      category: props['type'],
+      zone: props['zone'],
       start_lat: coords.first[1],
-      start_lng: coords.first[0],
-      end_lat: coords.last[1],
-      end_lng: coords.last[0]
+      start_lng: coords.first[0]
     )
 
     if record.valid?
